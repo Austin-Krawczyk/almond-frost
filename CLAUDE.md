@@ -388,6 +388,31 @@ the 1 km products are averaging over.
 Note the deprecated ID. `OREGONSTATE/PRISM/AN81d` ends in 2020 and will not cover this window.
 Use `ANd`.
 
+### 5.3a Which products ingest CIMIS — the circularity in K2 (ADDED 2026-09-23)
+
+**The accuracy comparison at station locations is not a fair test between a product fitted to
+those stations and one that has never seen them.** Two of the four gridded baselines are
+interpolated from a station network that includes CIMIS; the satellites have never seen a CIMIS
+observation. Verified against primary documentation, not asserted:
+
+| product | ingests CIMIS? | evidence |
+|---|---|---|
+| **PRISM `ANd`** | **YES** | PRISM's own *PRISM Datasets* documentation, Table A1, lists **CIMIS — "California Irrigation Management Information System, operated by Univ. California, Davis"** with **`Norm91m, AN91m, AN91d`** in the Tmax/Tmin column. `AN91d` is the daily AN product, which is exactly `OREGONSTATE/PRISM/ANd`. The same document states that AN "includes several networks that have stations sited in irrigated fields (e.g., AGRIMET, CIMIS, COAGMET)… not used in LT, because they do not represent natural climatic variations, but… used in AN". |
+| **gridMET** | **YES, inherited** | Climatology Lab: gridMET "blends spatial attributes of gridded climate data from PRISM with desirable temporal attributes… from regional reanalysis (NLDAS-2)", and "daily gridMET temperature and precipitation data now make use of daily PRISM maximum temperature, minimum temperature and precipitation that have been bias corrected". |
+| **Daymet V4** | **NO** | ORNL DAAC: Daymet's core input is "daily observations of minimum temperature, maximum temperature, and precipitation… obtained from the NOAA National Centers for Environmental Information's Global Historical Climatology Network (GHCN)-Daily data set". **CIMIS is not a GHCN-Daily source**: the GHCN-D readme's complete source-flag list contains no CIMIS or California agricultural network, and none of the 3,241 GHCN-D stations in California is named CIMIS. Empirically, the median distance from each of the 63 CIMIS stations to the nearest GHCN-D station is **5,604 m**, with only 1 of 63 within 200 m and 3 within 1 km — so the input sites are physically distinct. |
+| **ERA5-Land** | **NO** | ECMWF: ERA5-Land "runs without data assimilation"; observations influence it only "indirectly… through the atmospheric forcing of ERA5", whose assimilation uses GTS synoptic reports rather than state agricultural networks. |
+| **VIIRS, MODIS** | **NO** | Thermal retrievals; no surface station input. |
+
+**Consequence: Daymet is the fair benchmark at 1 km, and the only one.** PRISM and gridMET are
+being scored against the very observations they were interpolated from, at those observations'
+own locations. Their apparent advantage may be partly station-data dependency rather than
+measurement skill, and the size of that effect is what **Step 5** now exists to measure.
+
+**A hypothesis, not a finding.** The only product any satellite beats is ERA5-Land — which is
+also the only gridded product that does not ingest CIMIS at all. That is *consistent* with the
+circularity hypothesis, but it is **one data point** and must be stated as a hypothesis and never
+presented as evidence on its own.
+
 ### 5.4 Ground truth — CIMIS
 
 CIMIS stations in and adjacent to almond regions, 2015–2025. Pull hourly air temperature and daily
@@ -493,11 +518,33 @@ than resolution) from the coarse comparison (against **PRISM, gridMET at 4 km an
 ~11 km**, where a resolution advantage is genuinely available). State which mechanism each result
 supports. Do not average them into a single ranking.
 
-**Step 5 — Does the advantage come from terrain?** Regress per-station error against terrain
-variables: elevation, TPI, height above nearest drainage, distance to nearest CIMIS station, local
-relief within 5 km. The hypothesis is specific: gridded product error should grow with terrain
-relief and with station distance, and satellite error should not. If both grow together, the
-satellite is not resolving anything the grid misses. K3 is tested here. CHECKPOINT.
+**Step 5 — Terrain, station distance, and the circularity test. THE DECISIVE STEP
+(PROMOTED 2026-09-23).** This was a supporting step. It is now the one that determines what the
+K2 result means, because §5.3a established that PRISM and gridMET are interpolated from the very
+stations they are scored against while the satellites are not.
+
+**The circularity test.** Report each product's error as a function of **distance from the
+nearest station it ingests** — for PRISM and gridMET that is the nearest CIMIS station, for
+Daymet the nearest GHCN-Daily station, and for the satellites there is no such distance. Then:
+
+- **If PRISM's advantage decays with distance from its own input stations while the satellite's
+  error stays flat, the honest conclusion is that the grid wins where it was fitted and the
+  satellite may not lose where it was not.** That is a materially different finding from "the
+  satellite loses", and it must be stated as such.
+- **If PRISM's error is flat with distance too**, the dependency is not doing the work and the
+  K2 result stands as measured.
+
+**Extrapolate to the distances that actually matter.** Stations are not where orchards are. The
+median almond unit is **14.4 km** from the nearest station that operated in the study window, the
+90th percentile is 26.5 km, and **most units are further from a station than any station is from
+another** — so the error at 0–5 km, where the comparison is made, is not the error a product
+would deliver over the orchards an index would insure. Report the fitted error-versus-distance
+relationship evaluated at the unit distance distribution, and state the extrapolation plainly as
+an extrapolation.
+
+**Then the terrain question as originally specified:** regress per-station error against terrain
+relief and elevation, and report whether any satellite advantage grows with relief. **K3 is
+tested here.** CHECKPOINT.
 
 **Step 6 — Neighbourhood-scale spatial structure, and whether it repeats.**
 **RENAMED 2026-09-22.** The previous title, "within-orchard structure", claimed a footprint the
@@ -630,6 +677,15 @@ surprises found along the way.
   and absent from the Step 4 accuracy comparison.
 - **ABI continuity for night thermal work in California effectively begins in 2023**, because
   GOES-17's infrared bands are unusable on about a third of February pre-dawn scenes.
+- **The station comparison is circular for two of the four grids, and this is a limitation of
+  the headline result, not a footnote.** **PRISM ingests CIMIS** (its own Table A1 lists CIMIS
+  under `AN91d` for Tmax/Tmin) and **gridMET bias-corrects daily PRISM**, so both are interpolated
+  from the stations against which they are then scored, at those stations' own locations.
+  **Daymet (GHCN-Daily), ERA5-Land and the satellites do not ingest CIMIS.** **The K2 ranking may
+  therefore partly reflect station-data dependency rather than measurement skill**, and the
+  honest 1 km comparison is satellite against **Daymet**, not against PRISM. Step 5 measures how
+  much of the gap is dependency by testing whether each product's error grows with distance from
+  the nearest ingested station. See §5.3a.
 - **No 1 km product resolves a single orchard.** The median almond unit is about a tenth of a
   MODIS or VIIRS pixel, so every per-unit LST value is a neighbourhood value containing many
   fields. This is a property of the measurement, not a caveat about it, and it conditions every
@@ -788,10 +844,39 @@ What was done instead: severe flags (`I`, `M`, `S`) are dropped because they car
 — all 387 in this record are null — while `Y` and `R` are kept, carried in a `flagged` column, and
 the flagged share is reported beside every frost-night count.
 
+#### A sixth category: comparing models on different subsets of the world
+
+The fifth category is a filter that removes the phenomenon. The sixth is subtler and, for an
+insurance audience, more dangerous: **comparing two products on different subsets of weather
+manufactures a difference that is not there.**
+
+Found in Step 4. A satellite is only scored on nights it could see; a gridded product produces a
+value on every night. Scored that way — each product on every night it has a value — **VIIRS
+appeared to have tighter error tails than the grids on the coldest nights: RMSE 2.39 against
+PRISM's 3.10 at −2.2 °C.** That would have been a genuinely important finding, because **a rating
+depends on the tails far more than on the median**, and "the satellite is worse on average but
+better in the extremes" is exactly the kind of nuance that gets a product built.
+
+**It is an artefact.** The grids were being scored on the cloudy nights the satellite could not
+see, and those nights are harder. On the **matched** subset — the same station-nights for every
+product — PRISM is 2.28 and Daymet 2.29 against VIIRS 2.39, and the advantage disappears
+entirely.
+
+Nothing about this error announces itself: both numbers are correctly computed, the samples are
+large, and the conclusion is plausible and interesting. **The generalisation: whenever
+availability differs between the things being compared, any comparison not made on identical
+observations is measuring availability as well as skill.** This applies well beyond satellites —
+to any model scored where it happens to produce output, and to any claim built on records that
+exist for one product and not another.
+
 ## 9. Rules for the agent
 
 - Stop at every checkpoint. Print results, wait.
 - Never substitute a dataset. If an ID is dead, stop and ask.
+- **No two products are ever compared except on identical station-nights.** Availability differs
+  between products, so a comparison drawn from each product's own available sample measures
+  availability as well as skill. Where an unmatched comparison is shown at all, it is shown only
+  to quantify the distortion and is labelled as not quotable. See §8 item 10, sixth category.
 - **Any result of zero, none or empty must be verified by an independent method before it is
   accepted** — especially where zero is the expected answer. A sparse sensor, a rare event and a
   broken extraction all return nothing, and nothing looks the same in all three cases. Verify with

@@ -447,3 +447,54 @@ Every deviation from `CLAUDE.md`, dated, with the reason. One line each.
   required this to be stated either way: regional grouping in this study is a reporting convenience
   rather than a physical control, and §5.4's per-region bias correction must be read in that light —
   a correction fitted on strata that do not matter is largely fitting a single national offset.
+- 2026-09-23 — **A circularity in the K2 comparison, verified against primary documentation, and
+  it changes what the result means.** Two of the four gridded baselines are interpolated from a
+  station network that includes CIMIS, while the satellites have never seen a CIMIS observation —
+  so PRISM and gridMET are scored against the very observations they were fitted to, at those
+  observations' own locations. Verified, not taken on trust: **PRISM's own *PRISM Datasets* Table
+  A1 lists "CIMIS — California Irrigation Management Information System, operated by Univ.
+  California, Davis" with `Norm91m, AN91m, AN91d` in the Tmax/Tmin column**, and `AN91d` is exactly
+  `OREGONSTATE/PRISM/ANd`; the same document notes AN "includes several networks that have stations
+  sited in irrigated fields (e.g., AGRIMET, CIMIS, COAGMET)". **gridMET inherits it**: the
+  Climatology Lab states gridMET "blends spatial attributes of gridded climate data from PRISM"
+  and that daily temperature "make[s] use of daily PRISM… that ha[s] been bias corrected".
+- 2026-09-23 — **Daymet is independent of CIMIS and is therefore the fair 1 km benchmark.** ORNL
+  DAAC states Daymet V4's core input is GHCN-Daily. **CIMIS is not a GHCN-Daily source:** the
+  GHCN-D readme's complete source-flag list contains no CIMIS or Californian agricultural network,
+  none of the 3,241 GHCN-D stations in California is named CIMIS, and the **median distance from
+  each of the 63 CIMIS stations to the nearest GHCN-D station is 5,604 m** (1 of 63 within 200 m,
+  3 within 1 km), so the input sites are physically distinct. ECMWF states ERA5-Land "runs without
+  data assimilation" and that observations influence it only "indirectly… through the atmospheric
+  forcing of ERA5", so it does not ingest CIMIS either.
+- 2026-09-23 — **K2 reframed by dependency.** Against **PRISM**, which ingests CIMIS, the satellite
+  is worse by **0.47 °C (65%)**. Against **Daymet**, independent and at the same 1 km footprint, it
+  is worse by **0.16 °C (16%)**. The ranking sorts perfectly by dependency — the two CIMIS-ingesting
+  products place first and second, the three independent products third, fourth and fifth — but
+  that is a pattern over five products and is stated as such. §9 now carries the limitation
+  prominently: **the K2 ranking may partly reflect station-data dependency rather than measurement
+  skill.**
+- 2026-09-23 — **ERA5-Land observation recorded as a HYPOTHESIS, not a finding.** The only product
+  any satellite beats is also the only gridded product that assimilates nothing. That is consistent
+  with the circularity hypothesis and worth stating, but it is one data point and must never be
+  presented as evidence on its own.
+- 2026-09-23 — **§6 Step 5 PROMOTED to the decisive step.** It now tests the circularity directly:
+  each product's error as a function of distance from **the nearest station it ingests** — CIMIS
+  for PRISM and gridMET, GHCN-Daily for Daymet, none for the satellites. If PRISM's advantage
+  decays with distance from its own inputs while the satellite's error stays flat, **the honest
+  conclusion is that the grid wins where it was fitted and the satellite may not lose where it was
+  not** — a materially different finding from "the satellite loses". If PRISM's error is flat too,
+  the K2 result stands as measured. Step 5 must also **extrapolate to the distances that matter**:
+  the median almond unit is 14.4 km from the nearest operating station and the 90th percentile is
+  26.5 km, so the error at 0–5 km, where the comparison is made, is not the error a product would
+  deliver over the orchards an index would insure. The extrapolation is to be labelled as one.
+- 2026-09-23 — **§8 item 10 gains a sixth category: comparing models on different subsets of the
+  world.** Scored on every night each product has a value, VIIRS appeared to have tighter error
+  tails than the grids on the coldest nights (RMSE 2.39 against PRISM 3.10 at −2.2 °C) — and **for
+  an insurance audience that is the most consequential possible error, because a rating depends on
+  the tails far more than on the median.** It is an artefact: the grids were also being scored on
+  the cloudy nights the satellite could not see, which are harder. Matched, PRISM 2.28 and Daymet
+  2.29 against VIIRS 2.39, and the advantage vanishes. **Generalisation: whenever availability
+  differs between the things being compared, any comparison not made on identical observations is
+  measuring availability as well as skill.** §9 gains the matching rule: **no two products are ever
+  compared except on identical station-nights**, and an unmatched comparison may be shown only to
+  quantify the distortion, labelled as not quotable.
