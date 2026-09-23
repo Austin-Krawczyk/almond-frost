@@ -1,0 +1,6 @@
+product,pixel_km,pixel_acres,units_smaller_than_1px,pct_units,pct_acreage,median_unit_frac_of_px
+VIIRS / MODIS LST,1.0,247,39029,99.8,98.5,0.12
+Daymet,1.0,247,39029,99.8,98.5,0.12
+PRISM,4.0,3954,39102,100.0,100.0,0.007
+gridMET,4.0,3954,39102,100.0,100.0,0.007
+ERA5-Land,11.0,29900,39102,100.0,100.0,0.001

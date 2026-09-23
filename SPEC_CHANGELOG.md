@@ -202,3 +202,29 @@ Every deviation from `CLAUDE.md`, dated, with the reason. One line each.
   38). Unit-to-nearest-station distance is essentially unchanged — median 14.4 km against 14.7 km
   on the operating set — so the extra acreage is no better served than the original strata, and
   the K3 test still has real variation to work with.
+- 2026-09-22 — **§5.2a added: the unit is smaller than the pixel, and it reframes the comparison.**
+  A 1 km pixel is 247 acres; the median almond unit is 22–37 acres by stratum, about a tenth of a
+  MODIS or VIIRS pixel. **No 1 km product resolves a single orchard**, so every per-unit LST value
+  is a neighbourhood value containing many fields, and every downstream result is conditioned on
+  it. Step 1 now reports the share of units smaller than one pixel of each product, and §8 requires
+  that distribution in **§2 of the exhibit**, stated before any accuracy figure rather than after.
+- 2026-09-22 — **§6 Step 4 must report two findings, not one ranking.** VIIRS and MODIS against
+  **Daymet** is a 1 km-to-1 km comparison in which **no resolution advantage exists**; the only
+  available claim is that the satellite measures where Daymet interpolates — and interpolates from
+  the same sparse network the satellite is being tested against. Against **PRISM and gridMET
+  (4 km) and ERA5-Land (~11 km)** a resolution advantage is genuinely available. Beating PRISM
+  could be resolution; beating Daymet cannot be. Merging them into a single league table would
+  hide which mechanism is doing the work, so §5 must keep them separate.
+- 2026-09-22 — **§6 Step 6 renamed** from "Within-orchard structure" to "Neighbourhood-scale
+  spatial structure, and whether it repeats." The old title claimed a footprint the sensors do not
+  have. The test itself is unchanged and still right — cold-air pooling operates at roughly the
+  scale a 1 km pixel resolves — but nothing at 1 km may be described as resolving variation inside
+  an orchard. **ECOSTRESS at ~70 m is the only sensor here that resolves a single orchard**, which
+  raises its value in the study: it is the only instrument that can show what the 1 km products
+  are averaging over.
+- 2026-09-22 — **§10 Open items added**, carrying the fourth "outside Central Valley" stratum (six
+  counties, 6,409 acres, 0.42%; recommendation is to leave them folded in and report their
+  contribution) and the compute-footprint estimate required before Step 6, now that the unit set
+  has grown to 39,102 units statewide. The asset-count question is closed there: 45,404 features
+  = 39,102 units plus 6,302 fields below the 5-acre cut carried with `is_unit = 0`, printed and
+  asserted in Step 1.

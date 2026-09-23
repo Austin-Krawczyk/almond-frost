@@ -221,6 +221,38 @@ Treat it as a **case-study sensor** — find the handful of nights where an ECOS
 coincides with a CIMIS frost night, and use those as a spatial-structure demonstration, not as a
 statistical comparison.
 
+### 5.2a The unit is smaller than the pixel (ADDED 2026-09-22)
+
+**This reframes the whole comparison and must be read before §5.3.**
+
+A 1 km pixel is 247 acres. The median almond unit is 22–37 acres depending on stratum, about **a
+tenth of a MODIS or VIIRS pixel**. **No 1 km product resolves a single orchard.** Every per-unit
+LST value in this study is therefore a *neighbourhood* value covering many fields, and every
+result downstream is conditioned on that. Step 1 reports the distribution explicitly: the share of
+units smaller than one pixel of each product, which belongs in §2 of the exhibit for exactly this
+reason.
+
+**Two distinct findings, never one ranking.** The candidates do not all differ from the satellite
+in the same way, so a single league table would hide the mechanism:
+
+| Comparison | Pixel | Is a resolution advantage available? |
+|---|---|---|
+| VIIRS / MODIS **vs Daymet** | 1 km vs 1 km | **No.** Same footprint. |
+| VIIRS / MODIS **vs PRISM, gridMET** | 1 km vs 4 km | Yes |
+| VIIRS / MODIS **vs ERA5-Land** | 1 km vs ~11 km | Yes, large |
+
+**Against Daymet the satellite has no resolution advantage at all.** Its only claim there is that
+it **measures rather than interpolates** — Daymet's 1 km field is interpolated from the same sparse
+station network the satellite is being tested against, so beating it would be a statement about
+measurement versus interpolation at a fixed footprint. **Beating PRISM could be resolution;
+beating Daymet cannot be.** Step 4 must report these as two separate findings and say which
+mechanism each supports. A result that beats PRISM and gridMET but not Daymet means the gain is
+resolution, not measurement, and would not survive a denser interpolation network.
+
+**ECOSTRESS at ~70 m is the only sensor here that resolves a single orchard**, which raises its
+value in the study well above "case-study colour". It is the only instrument that can show what
+the 1 km products are averaging over.
+
 ### 5.3 Gridded baselines — what the satellite has to beat
 
 | Product | Earth Engine ID | Resolution | Variable | Units |
@@ -332,13 +364,29 @@ size of any satellite advantage, changes. Report the answer either way. A result
 move under a one-county shift of either boundary says the strata are a reporting convenience, not
 a physical control, and §5.4's per-region bias correction must then be read in that light.
 
+**Report as two findings, not one ranking (added 2026-09-22, see §5.2a).** Separate the 1 km
+comparison (VIIRS and MODIS against **Daymet**, same footprint, so any gain is measurement rather
+than resolution) from the coarse comparison (against **PRISM, gridMET at 4 km and ERA5-Land at
+~11 km**, where a resolution advantage is genuinely available). State which mechanism each result
+supports. Do not average them into a single ranking.
+
 **Step 5 — Does the advantage come from terrain?** Regress per-station error against terrain
 variables: elevation, TPI, height above nearest drainage, distance to nearest CIMIS station, local
 relief within 5 km. The hypothesis is specific: gridded product error should grow with terrain
 relief and with station distance, and satellite error should not. If both grow together, the
 satellite is not resolving anything the grid misses. K3 is tested here. CHECKPOINT.
 
-**Step 6 — Within-orchard structure.** Leave the stations. For the major events from Step 2, map
+**Step 6 — Neighbourhood-scale spatial structure, and whether it repeats.**
+**RENAMED 2026-09-22.** The previous title, "within-orchard structure", claimed a footprint the
+sensors do not have: at 1 km the test cannot see inside an orchard, since the median unit is about
+a tenth of a pixel (§5.2a). What it actually tests is whether **neighbourhood-scale** terrain
+structure repeats across independent frost nights. That is still the right test and still worth
+doing — cold-air pooling operates at roughly that scale — but the claim must match the footprint,
+and the write-up must not describe a 1 km result as within-orchard. ECOSTRESS at ~70 m is the only
+sensor here that resolves a single orchard; where a night scene coincides with a major event it is
+the one panel that can show what the 1 km products average over.
+
+Leave the stations. For the major events from Step 2, map
 satellite LST across all almond units in the affected region and compare against each gridded
 product's field over the same area. Report: the spatial standard deviation of each product over
 the almond acreage, and the spatial correlation between them. A 4 km grid physically cannot show
@@ -386,6 +434,12 @@ notebook cell. Every kill criterion addressed explicitly, fired or not.
 11. What this means for an index product — measurement implications only, no product proposal
 12. Data and reproducibility
 
+**§2 must carry the unit-area against pixel-area distribution**, from Step 1: the share of
+almond units smaller than one pixel of each product, at 1 km, 4 km and 11 km, with the median unit
+area beside it. **Every result in §5 onward is conditioned on this number**, because a per-unit
+satellite value is a neighbourhood average rather than an orchard measurement, so it is stated
+before any accuracy figure rather than after. §5.2a gives the reasoning; §2 gives the number.
+
 **§2 must carry the crop-map agreement result as a finding, not as a closed check.** Measured
 here for almonds and in the strawberry study for strawberries, using the same two products
 (DWR/Land IQ and USDA CDL) and the same two directions:
@@ -420,6 +474,17 @@ surprises found along the way.
   and absent from the Step 4 accuracy comparison.
 - **ABI continuity for night thermal work in California effectively begins in 2023**, because
   GOES-17's infrared bands are unusable on about a third of February pre-dawn scenes.
+- **No 1 km product resolves a single orchard.** The median almond unit is about a tenth of a
+  MODIS or VIIRS pixel, so every per-unit LST value is a neighbourhood value containing many
+  fields. This is a property of the measurement, not a caveat about it, and it conditions every
+  accuracy, structure and timing result in the study. See §5.2a and the §2 distribution.
+- **Against Daymet there is no resolution advantage**, both being 1 km; the only available claim
+  there is measurement versus interpolation. Against PRISM and gridMET (4 km) and ERA5-Land
+  (~11 km) a resolution advantage is genuinely available. **These are two different findings and
+  §5 must not merge them into one ranking.**
+- **Step 6 tests neighbourhood-scale structure, not within-orchard structure.** Nothing in this
+  study at 1 km may be described as resolving variation inside an orchard; only ECOSTRESS at
+  ~70 m can.
 
 ### §10 — Silent failure modes in public datasets
 
@@ -524,3 +589,31 @@ the product's own documentation and its own view-time band before use.
   say so and say by how much.
 - Do not infer damage. If a step needs a crop-response assumption, stop.
 - Commit at each checkpoint. Do not push without asking.
+
+## 10. Open items
+
+Carried deliberately, none blocking. Each is recorded here rather than in a changelog entry so it
+stays visible at the top of every session.
+
+1. **A fourth "outside Central Valley" stratum.** Six almond counties — Lake, Calaveras, Contra
+   Costa, Alameda, San Luis Obispo, Riverside — sit outside the Central Valley and are currently
+   assigned to the three latitude bands by the same rule as everything else (§5.1a). Together they
+   hold **6,409 acres, 0.42%** of state almond acreage. The argument for splitting them out is
+   that their frost climatology is not valley climatology: coastal San Luis Obispo and the Sierra
+   foothills of Calaveras do not pool cold air the way the valley floor does, so folding them in
+   adds a different physical regime to each band. The argument against is that 0.42% cannot move
+   any stratum-level statistic, and a fourth stratum of 6,409 acres across six disconnected
+   counties would be too small and too heterogeneous to interpret. **Recommendation: leave them
+   folded in, and report their contribution wherever a stratum result is given, so a reader can
+   see the amount at stake.** Revisit only if a result turns on one of those counties.
+2. **A compute-footprint estimate before Step 6.** Step 6 maps LST across all almond units for the
+   major events, and Step 1 has grown the unit set from 28,748 to **39,102 units over 1.5 million
+   acres statewide**. Produce an estimate of the Earth Engine request volume and wall-clock time
+   **before** starting Step 6, not during it, and say then whether the step runs on all units, on
+   the affected stratum only, or on a sample. The strawberry study hit Earth Engine's interactive
+   limits at two-county scale, and this is a far larger area.
+3. **~~Asset feature count against unit count.~~ CLOSED 2026-09-22.** The asset holds **45,404**
+   features against **39,102** units because it deliberately carries every D12 field, including
+   the **6,302** below the 5-acre cut, flagged `is_unit = 0`, so the size cut stays auditable
+   inside Earth Engine rather than only in the local table. Step 1 now prints the reconciliation
+   and asserts it.
