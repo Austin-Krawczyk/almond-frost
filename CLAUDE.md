@@ -68,6 +68,45 @@ real terrain variation to test against.
   documented columns.
 - Figures per §7.
 
+### 1a Which perils suit satellite index design (ADDED 2026-09-23)
+
+**State this before the results, not after.** It is the most transferable finding either study in
+this programme has produced, and it belongs in §1 of the exhibit and in the summary.
+
+**Radiative frost requires clear skies, so satellite availability is positively correlated with
+the hazard.** Measured in Step 3 over 31,359 station-nights: a usable retrieval exists on **87.0%
+of frost nights against 56.8% of ordinary nights for VIIRS** (1.53×), 56.3% against 34.5% for
+Aqua, 56.1% against 31.1% for Terra, and **92.0% against 62.7% for at least one polar orbiter**.
+The advantage holds or grows at colder thresholds and in every one of eleven seasons.
+
+**That is the opposite of flood.** In the strawberry study the peril arrived with the cloud that
+caused it: there was no usable optical view of the Pajaro Valley for 11–14 March 2023, the days
+water was at its peak, because the storm that broke the levee also closed the sky. The sensor was
+blindest exactly when the event was largest.
+
+**The general rule: a peril whose physical signature requires clear skies is observable by
+satellite when it matters; a peril carried by cloud is not.** Frost, heat and drought sit on one
+side; flood, hail and wind-driven rain sit on the other. **This is a stronger criterion for
+choosing which perils to build satellite index products around than any accuracy statistic**, and
+it can be evaluated cheaply before any analysis is commissioned — the question is only whether the
+hazard and the obstruction share a cause.
+
+### 1b What this study can and cannot test (ADDED 2026-09-23)
+
+**Also state this before the results.** ECOSTRESS has been **dropped** (§5.2): only 10 frost
+station-nights in seven seasons put a station inside a night swath, and on the one widespread
+event whose scene footprints covered almond acreage, 18 February 2023, there is no data over any
+of it — verified three ways. **Every remaining sensor is 1 km or coarser**, which is the same
+footprint as Daymet and coarser than nothing in the comparison set. **No participating instrument
+resolves a single orchard**, and the one that could does not observe these nights. Combined with §5.2a — the median almond unit is about a tenth of a
+1 km pixel — this fixes what the study is actually testing:
+
+**This study tests measurement against interpolation, not resolution.** Beating PRISM or gridMET
+at 4 km, or ERA5-Land at ~11 km, is partly a resolution effect. **Beating Daymet at 1 km cannot
+be**, because the footprints are identical; there the only available claim is that the satellite
+measures where Daymet interpolates — and interpolates from the same sparse station network the
+satellite is being judged against. §5 must keep those two comparisons apart.
+
 ## 4. Kill criteria
 
 State these in the exhibit whether or not they fire. A negative result is a result; do not rescue
@@ -152,7 +191,7 @@ All are night-time observations; daytime LST is irrelevant to frost.
 | MODIS Aqua night LST | `MODIS/061/MYD11A1` | `LST_Night_1km` | 1 km | Full candidate, plus the drift experiment (**AMENDED**) |
 | MODIS Terra night LST | `MODIS/061/MOD11A1` | `LST_Night_1km` | 1 km | Candidate; too early in the night |
 | GOES-18 ABI | `NOAA/GOES/18/MCMIPC` | `CMI_C13`, `CMI_C14` | 2 km | **Timing instrument only**, Step 7 (**AMENDED**) |
-| ECOSTRESS | `NASA/ECOSTRESS/L2T_LSTE/V2` | `LST` | ~70 m | Case-study sensor, 2019–2025 (**AMENDED**) |
+| ECOSTRESS | `NASA/ECOSTRESS/L2T_LSTE/V2` | `LST` | ~70 m | **DROPPED 2026-09-23** — see below |
 
 **Units and scale, read from the published band documentation, not from memory:**
 
@@ -229,7 +268,7 @@ Earth Engine, not from memory. The eight widespread freeze events are from Step 
 | MODIS Terra `MOD11A1` | 2000-02-24 | 8 of 8 |
 | MODIS Aqua `MYD11A1` | 2002-07-04 | 8 of 8 |
 | VIIRS `VNP21A1N` | 2012-01-19 | 8 of 8 |
-| ECOSTRESS `L2T_LSTE/V2` | 2018-07-09 | 7 of 8 |
+| ECOSTRESS `L2T_LSTE/V2` | 2018-07-09 | 7 of 8 by date, **0 of 8 with data over almond acreage** |
 | GOES-18 `MCMIPC` | 2022-05-11 | 3 of 8 |
 
 | Event | Nights | Peak stations | Coldest | Terra | Aqua | VIIRS | ECOSTRESS | GOES-18 |
@@ -249,6 +288,61 @@ GOES-18 by four years. Note also that **GOES-18 does not cover February 2022**: 
 begins in May 2022, so the three events it can see are all single nights in February 2023. This
 is the constraint that forced the Step 7 redefinition below, and it belongs in §5 of the exhibit
 as part of the sensor-availability argument.
+
+**ECOSTRESS is dropped from the study (2026-09-23).** It was kept as a case-study sensor because
+at ~70 m it is the only instrument here that resolves a single orchard. It cannot deliver even
+that, and the evidence is measured rather than inferred:
+
+- **At stations:** only **10 frost station-nights in seven seasons** put a station inside a night
+  swath (Step 3). The deficit is orbital, not cloud — a night scene existed on 44.5% of frost
+  nights against 48.4% of ordinary ones, and given the station *was* in swath the QC screen passed
+  100% of frost nights.
+- **Over almond acreage on the eight widespread events:** five event nights precede the record
+  (February 2018; the collection begins 2018-07-09). Of the eleven remaining event nights, **eight
+  have no night scene intersecting almond acreage at all**, two put a footprint over a single
+  6-acre unit, and one — **18 February 2023** — looked promising with 41 night scenes whose
+  footprints covered 1,939 units and 93,661 acres.
+- **That one night contains no data over any of it.** Verified three independent ways, per the §9
+  zero rule: the masked-area sum over those units is 0 acres; 300 sampled unit centroids return no
+  raw LST; and the Step 3 station extraction independently finds 0 of 63 stations with raw LST on
+  that date. The same extraction returns 1,474 station-nights with raw LST across the record and
+  up to 60 stations in swath on other dates, so the method works and the zero is real.
+
+**A granule footprint is not data coverage.** ECOSTRESS L2T footprints are far larger than the
+area actually filled, so 41 scenes "covering" 93,661 acres cover none of it. That is the same
+lesson the strawberry study's Step 1d recorded for PlanetScope — catalogue coverage metadata
+overstates usable observation — and it should be stated once, generally, in the exhibit.
+
+**Consequence, which belongs in §1b and before the results:** with ECOSTRESS gone, **every
+participating sensor is 1 km or coarser.**
+
+**GOES cloud screening, required before Step 7 (ADDED 2026-09-23). This is the most dangerous
+trap in the study.** On a cloudy night a geostationary infrared sensor returns the **cloud-top**
+brightness temperature, which is colder than the surface and often far colder. Cloud contamination
+would therefore make GOES appear to see minima the 01:30 polar snapshot missed — **which is
+precisely the finding Step 7 is looking for.** An unscreened run could produce a spectacular,
+publishable and entirely spurious result. `DQF_C13` does not protect against this: it is an
+*instrument* quality flag, and it reads 0 ("Good pixels") on 100% of station-nights.
+
+**There is no ABI Clear Sky Mask (ACM) in Earth Engine.** The catalogue carries only `MCMIP*`
+(cloud and moisture imagery) and `FDC*` (fire detection) for GOES-16/17/18/19; checked
+2026-09-23.
+
+**The fire product's cloud flag was tested and rejected, with numbers.** `NOAA/GOES/18/FDCC` has
+a `DQF` band documented as `0` good-quality fire, `1` good-quality fire-free land, `2` **invalid
+due to opaque cloud**. Over 7,739 station-nights in 2023–2025 it agrees with the VIIRS clear flag
+79.7% of the time overall (φ = 0.594) — but **on frost nights it calls only 41.1% clear where
+VIIRS retrieves usable LST on 89.8%.** On 16 February 2023, a widespread radiative freeze that
+must have been clear, FDCC flagged 56 of 63 stations as opaque cloud. The fire algorithm's
+infrared cloud test evidently mistakes a very cold clear land surface for a cloud top. **Using it
+would preferentially delete frost nights — the fifth silent-failure category exactly, a screen
+whose trigger correlates with the signal.** FDCC `DQF` is therefore not used as a cloud mask, and
+the measured reason is recorded rather than the tool being quietly dropped.
+
+**Method adopted:** GOES nights are screened by **cross-referencing the polar-orbiter clear flags
+for the same station-night** (VIIRS `QC` bits 0–1 = 0, MODIS `QC_Night` bits 0–1 = 0). §9 must
+state plainly that `DQF_C13` is an instrument flag and that GOES cloud screening came from
+another sensor entirely.
 
 ### 5.2a The unit is smaller than the pixel (ADDED 2026-09-22)
 
@@ -453,6 +547,17 @@ For those nights, pull the GOES-18 ABI time series and report:
 - **whether that offset varies in space** across the almond regions, since a spatially varying
   offset cannot be removed by a single calibration constant.
 
+**Falsification check, mandatory, reported whether or not it fires (ADDED 2026-09-23).** If
+GOES's apparent extra cooling is cloud rather than surface, it must behave like cloud. Test and
+report:
+
+1. whether the apparent extra cooling **correlates with cloud indicators** on the same night; and
+2. whether it is **largest on the nights the polar orbiters flag as unclear**, which is what
+   contamination predicts and what a real surface signal does not.
+
+A clean result here is a positive finding about the timing gap. A dirty one means the timing
+result is an artefact, and that must be stated as the result rather than worked around.
+
 GOES is a **timing instrument only** here: `CMI_C13`/`C14` are top-of-atmosphere brightness
 temperatures, not LST, and GOES is absent from the Step 4 accuracy comparison (§5.2). GOES-17 is
 not used at all (§5.2). CHECKPOINT.
@@ -571,7 +676,36 @@ and what caught it**:
    believable number for a small crop, which is exactly why it would have survived review.
    Caught by tabulating the field's own distribution before trusting it.
 
-**All three share one property, and it is the part worth generalising: the error produced a
+4. **A mask that encodes "good" as "absent".** In Earth Engine's `MOD11A1`/`MYD11A1` the
+   `QC_Night` band is *masked* wherever its value is 0 — and 0 is "LST produced, good quality".
+   The cautious reading, treating a missing quality flag as unusable, therefore **throws away the
+   best retrievals and keeps the second-best**: two-thirds of the valid station-nights in a test
+   season. Verified rather than assumed: 705 station-nights had LST present with QC masked, 716
+   had QC present with LST absent, 343 had both, **none had both missing**, and `unmask(0)`
+   returned 0 for all 705. VIIRS, from the same provider family, never masks its `QC` band —
+   so the behaviour is not even consistent between sibling products.
+5. **A sparse sensor makes a plausible zero.** `ee.Reducer.first()` names its output `first` on a
+   single-band image but after the band names on a multi-band one. An ECOSTRESS extraction that
+   read back the band name got `None` for every row and reported **zero usable observations in
+   every season** — which is exactly what a sparse ISS-orbit sensor might genuinely produce, and
+   it was nearly accepted on those grounds. **A bug returning nothing is indistinguishable from
+   the sparsity you expected.** Caught only by hand-checking one scene at one station against a
+   second method, where `reduceRegion` returned a value that `reduceRegions` did not. The true
+   figure is 86–339 usable station-nights per season from 2019.
+
+**The scaling pattern is now a rule, not three anecdotes.** Three independent products in this
+programme have stored a physical quantity as a scaled integer in a way their catalogue entry did
+not make safe: **CPC precipitation** in 0.1 mm/day (strawberry study), **VIIRS `LST_1KM`** with no
+scale factor where sibling MODIS bands carry 0.02, and **GOES `CMI_C13`**, whose catalogue entry
+declares units of K and gives no scale factor while the values are scaled integers needing a
+**per-image** scale and offset. The GOES case is the sharpest: raw values run 1,980–3,218, plainly
+not kelvin, but **a guessed ×0.1 gives 198–322 K — inside the believable range and wrong.** The
+image's own `CMI_C13_scale` (0.06145332) and `CMI_C13_offset` (89.62) give 211.3–287.4 K.
+**Rule: never infer a scale factor from the plausibility of the result.** Read the product's own
+metadata, per image where the metadata is per image, and if it is absent, verify against an
+independent source before use.
+
+**All five share one property, and it is the part worth generalising: the error produced a
 number in a believable range rather than an exception.** None of them raised an error, none
 produced an obviously absurd map, and each supported a conclusion that sounded reasonable. Unit
 and schema checks are therefore part of the method, not housekeeping.
@@ -658,6 +792,11 @@ the flagged share is reported beside every frost-night count.
 
 - Stop at every checkpoint. Print results, wait.
 - Never substitute a dataset. If an ID is dead, stop and ask.
+- **Any result of zero, none or empty must be verified by an independent method before it is
+  accepted** — especially where zero is the expected answer. A sparse sensor, a rare event and a
+  broken extraction all return nothing, and nothing looks the same in all three cases. Verify with
+  a different call, a different granularity, or a hand-checked single case. See §8 item 10,
+  entry 5, for the ECOSTRESS zero that survived until one scene was checked by hand.
 - **Every filter must report what it removed, and whether what it removed differs from what it
   kept.** Not the count alone: the distribution. A filter is only neutral if the discarded data
   look like the retained data, and that has to be shown rather than assumed. This applies to QC

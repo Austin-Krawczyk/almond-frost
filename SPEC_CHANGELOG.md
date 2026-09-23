@@ -351,3 +351,62 @@ Every deviation from `CLAUDE.md`, dated, with the reason. One line each.
   Aqua 801 of 2,439, Terra 778 of 2,411 — and the removed nights' median tmin (−0.7, −1.3,
   −1.2 °C) sits close to the kept nights' (−1.1, −1.0, −1.1 °C). **The screen is not selecting on
   cold**, unlike the CIMIS flags in Step 2 where it would have been. Reported either way.
+- 2026-09-23 — **§1a added: which perils suit satellite index design.** Radiative frost requires
+  clear skies, so **satellite availability is positively correlated with the hazard** — VIIRS 87.0%
+  on frost nights against 56.8% on ordinary ones, any polar orbiter 92.0% against 62.7%. **That is
+  the opposite of flood**, where the storm that caused the peril also closed the sky: the
+  strawberry study had no usable optical view of the Pajaro Valley on 11–14 March 2023, the days
+  water was at its peak. General rule, and the most transferable finding either study has produced:
+  **a peril whose physical signature requires clear skies is observable when it matters; a peril
+  carried by cloud is not.** It can be judged before any analysis is commissioned — the question is
+  only whether the hazard and the obstruction share a cause. Belongs in §1 of the exhibit and in
+  the summary.
+- 2026-09-23 — **ECOSTRESS DROPPED from the study.** Kept until now because at ~70 m it was the
+  only instrument resolving a single orchard. Evidence, measured: only 10 frost station-nights in
+  seven seasons put a station in a night swath; of the eight widespread events, five precede the
+  record, eight of the remaining eleven event nights have no night scene intersecting almond
+  acreage, two cover a single 6-acre unit, and **18 February 2023 — 41 night scenes whose
+  footprints cover 1,939 units and 93,661 acres — contains no data over any of it.** That zero was
+  verified three independent ways per the new §9 rule: masked-area sum = 0 acres, 300 sampled unit
+  centroids return no raw LST, and the Step 3 station extraction finds 0 of 63 stations with raw
+  LST that date while returning 1,474 station-nights with raw LST across the record. **A granule
+  footprint is not data coverage** — the same lesson the strawberry Step 1d recorded for
+  PlanetScope.
+- 2026-09-23 — **§1b added: with ECOSTRESS gone, every participating sensor is 1 km or coarser**,
+  the same footprint as Daymet. **This study therefore tests measurement against interpolation,
+  not resolution.** Beating PRISM or gridMET at 4 km, or ERA5-Land at ~11 km, is partly a
+  resolution effect; **beating Daymet at 1 km cannot be.** Stated before the results, not after.
+- 2026-09-23 — **GOES cloud screening settled before Step 7; it is the most dangerous trap in the
+  study.** On a cloudy night a geostationary IR sensor returns the cloud-top temperature, colder
+  than the surface — so contamination would make GOES appear to see minima the 01:30 polar snapshot
+  missed, **which is exactly what Step 7 is looking for**. `DQF_C13` gives no protection: it is an
+  instrument flag and reads 0 on 100% of station-nights. **There is no ABI Clear Sky Mask in Earth
+  Engine** (only `MCMIP*` and `FDC*`, checked 2026-09-23). **The fire product's cloud flag was
+  tested and rejected with numbers:** `NOAA/GOES/18/FDCC` `DQF` = 2 is documented as "invalid due
+  to opaque cloud", and over 7,739 station-nights it agrees with the VIIRS clear flag 79.7% overall
+  (phi = 0.594) — but **on frost nights it calls only 41.1% clear where VIIRS retrieves usable LST
+  on 89.8%**, and on 16 February 2023, a widespread radiative freeze, it flagged 56 of 63 stations
+  as opaque cloud. The fire algorithm's IR test mistakes very cold clear land for cloud top, so
+  using it would preferentially delete frost nights — **the fifth silent-failure category exactly**.
+  Method adopted: screen GOES nights by cross-referencing the polar-orbiter clear flags for the
+  same station-night, stated as such in §9.
+- 2026-09-23 — **§6 Step 7 gains a mandatory falsification check**, reported whether or not it
+  fires: if GOES's apparent extra cooling is cloud, it must correlate with cloud indicators and be
+  largest on nights the polar orbiters flag as unclear. A dirty result means the timing finding is
+  an artefact and must be stated as the result rather than worked around.
+- 2026-09-23 — **§8 item 10 gains entries 4 and 5, and the scaling pattern becomes a rule.**
+  (4) **A mask that encodes "good" as "absent"** — MODIS masks `QC_Night` where the value is 0,
+  which is "good quality", so the cautious reading throws away the best retrievals and keeps the
+  second-best; VIIRS, from the same provider family, never masks its `QC`. (5) **A sparse sensor
+  makes a plausible zero** — a reducer-output-name bug reported zero usable ECOSTRESS observations
+  in every season, indistinguishable from the sparsity expected of an ISS-orbit sensor, and caught
+  only by hand-checking one scene against a second method. **The scaling pattern is now three
+  independent instances** — CPC 0.1 mm/day, VIIRS with no scale factor where MODIS carries 0.02,
+  and GOES `CMI_C13` needing a per-image scale and offset the catalogue does not mention — so it is
+  stated as a rule: **never infer a scale factor from the plausibility of the result.** The GOES
+  case is the sharpest: **x0.1 gives 198–322 K, inside the believable range and wrong**, against
+  211.3–287.4 K from the image's own properties.
+- 2026-09-23 — **§9 gains the zero rule:** any result of zero, none or empty must be verified by an
+  independent method before it is accepted, especially where zero is the expected answer. A sparse
+  sensor, a rare event and a broken extraction all return nothing, and nothing looks the same in
+  all three cases.
