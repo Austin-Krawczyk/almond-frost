@@ -498,3 +498,36 @@ Every deviation from `CLAUDE.md`, dated, with the reason. One line each.
   measuring availability as well as skill.** §9 gains the matching rule: **no two products are ever
   compared except on identical station-nights**, and an unmatched comparison may be shown only to
   quantify the distortion, labelled as not quotable.
+- 2026-09-23 — **Step 5 complete. The circularity test is INCONCLUSIVE, and says so.** Per-station
+  median absolute error was regressed on distance to each product's own input network, over the 50
+  stations with at least 20 matched frost nights. **No slope is statistically distinguishable from
+  zero** (bootstrap 95% CI, 2,000 resamples), so the test cannot confirm or refute the hypothesis.
+  The point estimates all point one way and are reported as a direction, not a result: the
+  satellite is **flat** against both networks (−0.0011 and −0.0002 °C/km), which is what a product
+  with no station inputs must look like, while all four grids have **positive** slopes against the
+  GHCN-Daily network (Daymet +0.0259, gridMET +0.0322, ERA5-Land +0.0192, PRISM +0.0172 °C/km).
+  Against CIMIS *spacing* every product is flat, as expected — PRISM ingests the station being
+  scored, so the distance to the next CIMIS station is not its input distance.
+- 2026-09-23 — **The hard limit, stated rather than worked around: PRISM's error away from its own
+  inputs is not measurable with this data at all.** Ground truth exists only at CIMIS stations and
+  PRISM ingests every one of them. What Step 5 can measure is how error varies with distance from
+  the **GHCN-Daily** network, which Daymet interpolates from and which genuinely varies across the
+  stations, and whether the satellite is flat with respect to both — which it is.
+- 2026-09-23 — **Extrapolation to orchard distances, labelled as an extrapolation.** Fitted lines
+  evaluated at the unit distance distribution: **VIIRS 1.21 °C flat; Daymet 1.02 at 0 km rising to
+  1.24 at the median orchard's 8.2 km from GHCN-Daily; gridMET 0.73 to 0.99; PRISM 0.67 to 0.81.**
+  Daymet's fitted line meets VIIRS at about **7 km** and the median almond unit sits at 8.2 km;
+  PRISM's does not meet it until about **30 km**, beyond where most orchards are. The fitted range
+  (0.27–26.1 km) covers 99.7% of unit acreage, so the weakness is slope uncertainty rather than
+  range. **Honest conclusion: the measured gap is largest exactly where the measurement was made,
+  and the trends are consistent with it narrowing over orchards, but the slopes are not
+  significant. This neither rescues the satellite nor confirms the circularity — what it does
+  establish is that Step 4's numbers are the best case for the grids, not a neutral one.**
+- 2026-09-23 — **K3 NOT ESTABLISHED.** K3 is worded "satellite advantage, where it exists", and K2
+  found none, so what was tested is whether the gap narrows with terrain relief. **VIIRS is the
+  only product whose error falls significantly with relief** (−0.227 °C per 100 m of elevation SD
+  within 5 km, CI excluding zero), which is the direction K3 anticipated — but the **gap** against
+  each grid does not close significantly (Daymet +0.448, gridMET +0.244, PRISM +0.027 °C per 100 m,
+  all CIs spanning zero). **The test is weak by construction:** CIMIS stations sit on valley floors,
+  so the median relief available is 6 m SD against a maximum of 119, and the range simply is not
+  there. Stated as a limitation of the test rather than as evidence of absence.

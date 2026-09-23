@@ -1,0 +1,796 @@
+station,VIIRS,Daymet,PRISM,gridMET,ERA5-Land,StationNbr,Name,City,RegionalOffice,County,ConnectDate,DisconnectDate,IsActive,IsEtoStation,Elevation,GroundCover,HmsLatitude,HmsLongitude,SitingDesc,lat,lon,elev_ft,connect,disconnect,elev_m,dist_to_almond_km,in_window,d_cimis_km,d_ghcnd_km,elev_srtm,relief_sd,relief_range,n_nights,gap
+2,1.0121678321678564,0.9717105269211492,0.42735484106646426,0.69930202244045,1.2703966981875974,2,FivePoints,Five Points,South Central Region Office,Fresno,6/7/1982,12/31/2050,True,True,285,Grass,36º20'10N / 36.336222,-120º6'46W / -120.11291,"This station is located on a USDA research facility located in the Southern San Joaquin Valley. Consequently the surrounding environment can be subject to land use changes. <br />
+Prevailing Wind: North",36.336222,-120.11291,285,1982-06-07,2050-12-31,86.86800000000001,0.66,True,11.65116913940384,4.9651818827696745,83.89671120381905,5.3541449471151,26,61,-0.3128658097274064
+5,0.648817204301066,1.9840000030919902,0.7039934660446545,0.9892273680178705,1.0798556756116673,5,Shafter,Shafter,South Central Region Office,Kern,6/1/1982,12/31/2050,True,False,360,Grass,35º31'57N / 35.532556,-119º16'54W / -119.28179,,35.532556,-119.28179,360,1982-06-01,2050-12-31,109.728,0.39,True,10.034111947103908,8.24161293373341,111.6598449865936,6.474129958895364,32,35,0.34041016371680444
+7,0.8487425149700794,0.6318589949144577,0.39327451077950326,0.6091560712826798,1.4640870901254512,7,Firebaugh/Telles,Firebaugh,South Central Region Office,Fresno,9/22/1982,12/31/2050,True,True,185,Grass,36º51'4N / 36.851222,-120º35'27W / -120.59092,"DATE: 11-12-02<br/><br/>
+STATION#:7<br/>                         STATION NAME: Firebaugh<br/> 
+ETO ZONE: 15<br/>		
+PREVAILING WINDS: WNW<br/>
+LOCAL CHARACTER: Firebaugh is located in an intensive agricultural area.  Primary crops include, alfalfa, cotton and truck farm vegetables.<br/>
+
+DESCRIPTION OF STATION SITE:
+Located in the lawn area of an agriculture-related company adjacent to shops and housing. The turf is well maintained and sprinkler irrigated by ranch personnel.<br/><br/>
+ 
+NORTH:<br/>
+75ft: Well-maintained turf<br/>
+75-100ft: Paved interior drive<br/>
+100-300ft: Well-maintained turf<br/><br/>
+
+NORTHEAST:<br/>
+70ft: Well-maintained turf<br/> 
+70ft: Guard Shack/trees and driveway beyond<br/><br/>
+
+EAST:<br/>
+70ft: Well-maintained turf<br/>
+70ft: 3ft wall<br/>
+70-100ft: paved drive<br/>
+100ft: Well-maintained turf<br/><br/>
+
+SOUTHEAST:<br/>
+70ft: Well-maintained turf<br/> 
+70ft: Clump of trees and driveway beyond<br/><br/>
+
+SOUTH:<br/>
+100ft: Well-maintained turf<br/>
+100-175ft: ditch and paved road<br/>
+175ft: Row crops<br/><br/>
+
+WEST:<br/>
+70ft: Well-maintained turf<br/>
+70ft: Scattered trees and well-maintained turf<br/><br/>
+
+COMMENTS:<br/>
+Irrigation sprinklers sometimes impact the station affecting sensors, especially, the rain gauge.",36.851222,-120.59092,185,1982-09-22,2050-12-31,56.388000000000005,3.59,True,13.230620824410098,18.676238385623915,56.36112981262605,6.017993615500376,32,37,-0.23958644368739956
+12,1.0973913043478318,0.9588236155470504,0.7355923843813008,0.9347827413807748,1.5594308890548407,12,Durham,Chico,Northern Region Office,Butte,10/19/1982,7/30/2025,False,True,130,Grass,39º36'31N / 39.608639,-121º49'28W / -121.82443,"DATE: 11-12-02<br />
+<br />
+ STATION#:12<br />
+ STATION NAME: Durham<br />
+ ETO ZONE: 12<br />
+ PREVAILING WINDS: SW <br />
+ LOCAL CHARACTER: Rural area with predominately tree crops such as almonds, plums and peaches. Row crops, tomatoes and beans, are common as well.<br />
+<br />
+ DESCRIPTION OF STATION SITE:<br />
+ Located on a private farm in a little used sprinkler irrigated pasture. A wire fence surrounds the station.<br />
+<br />
+ NORTH:<br />
+ 300ft: Irrigated pasture<br />
+<br />
+ EAST:<br />
+ 75ft: Irrigated pasture<br />
+ 75-500 ft: Row crops (usually beans or tomato)<br />
+<br />
+ SOUTH:<br />
+ 200ft: Irrigated pasture<br />
+ 200-225ft: Unpaved farm lane<br />
+ 225-500 ft: Row crops (usually beans or tomato)<br />
+<br />
+ WEST:<br />
+ 75ft: Irrigated pasture<br />
+ 75ft: Unknown type tree approximately 50ft tall<br />
+ 75-200ft: Irrigated pasture<br />
+ 200ft: Farm buildings and paddocks<br />
+<br />
+ COMMENTS:<br />
+ Pasture varies in quality due to how many livestock are available for grazing and the frequency of irrigation, which can be somewhat erratic. The raingauge is covered, usually, when the site is sprinkler irrigated. The raingauge is sometimes not uncovered when the winter rains begin.&nbsp; Site was discontinued due to a land use change in 2025",39.608639,-121.82443,130,1982-10-19,2025-07-30,39.624,0.16,True,24.6871758121994,5.992585939007377,40.56705114061512,4.694578000455929,34,59,-0.16260856296705706
+15,1.350327868852454,0.8782009892028273,0.3995429872123966,0.5131974469913178,1.066007381271349,15,Stratford,Stratford,South Central Region Office,Kings,10/29/1982,12/31/2050,True,True,193,Grass,36º9'29N / 36.157972,-119º51'5W / -119.85143,"DATE: 11-12-02<br />
+<br />
+STATION#:15<br />
+STATION NAME: Stratford<br />
+ETO ZONE: 16<br />
+PREVAILING WINDS: N<br />
+<br />
+LOCAL CHARACTER: Primarily agriculture. Principle crops include orchards, hay, cotton, and some truck farming.<br />
+<br />
+DESCRIPTION OF STATION SITE:<br />
+Located on a flood-irrigated pasture of a dairy operation. The landowner grazes sufficient cattle to maintain a relative constant grass height.<br />
+<br />
+NORTH:<br />
+200ft: pasture grass<br />
+<br />
+EAST :<br />
+300 ft: pasture grass<br />
+<br />
+SOUTH:<br />
+300 ft: pasture grass<br />
+<br />
+WEST:<br />
+500ft: pasture grass<br />
+<br />
+COMMENTS:<br />
+Pasture grass is sometimes in poor condition due to lack of maintenance and uneven irrigation. When the pasture is irrigated, it is flooded to 60 ft in from the north along the perimeter of the field with a tapering off across the field.",36.157972,-119.85143,193,1982-10-29,2050-12-31,58.8264,4.41,True,28.265238326447164,12.509494659439133,60.31520023268343,3.2726664026099463,25,58,-0.8371304218611363
+39,0.42404308827229786,0.7389946311731872,0.6806196963694777,0.6499969482421876,2.0015479278041775,39,Parlier,Parlier,South Central Region Office,Fresno,5/23/1983,12/31/2050,True,True,337,Grass,36º35'51N / 36.597444,-119º30'15W / -119.50404,"DATE: 11-12-02<br/><br/>
+STATION#:39<br/>                             STATION NAME: Parlier<br/>
+ETO ZONE: 12<br/>
+PREVAILING WINDS: NW<br/> 
+LOCAL CHARACTER: Primarily agricultural area.  Large fields of cotton, grapes and orchards characterize regional farming operations.<br/><br/>
+
+DESCRIPTION OF STATION SITE:<br/>
+Located on a University of California research facility.  The station is in a flood-irrigated plot with a mixed clover/grass cover.<br/><br/>  
+
+NORTH:<br/>
+100ft: Grass-clover<br/> 
+100-300+ ft: Research plots and instrumentation.<br/><br/>
+
+EAST:<br/>
+75ft: Grass-clover<br/>
+75ft: Orchard<br/><br/>
+
+SOUTH:<br/>
+100ft: Grass-clover<br/>
+100-125ft: Paved access road<br/>
+125ft: Research plot with grapes<br/><br/>
+
+WEST:<br/>
+100ft: Grass-clover<br/>
+100-200ft: Paved landing strip and aircraft parking area.<br/><br/>
+
+COMMENTS:<br/>
+The area around the station plot is subject to change as the requirements of the research facility change.",36.597444,-119.50404,337,1983-05-23,2050-12-31,102.7176,0.95,True,17.153372357838332,18.352330769570795,104.91788980928364,3.897455369914404,27,38,0.2259538599698897
+54,0.7333333333333307,1.6970548280859243,0.9818013612932066,1.0991789006004649,1.8769211651527713,54,Blackwells Corner,Blackwells Corner,South Central Region Office,Kern,10/19/1986,10/18/2021,False,False,705,Grass,35º38'59N / 35.649861,-119º57'33W / -119.9593,"This station is located on a grass field located in the interior of an almond orchard. Orchard activities can adversly effect the data from this station. <br />
+Prevailing Winds: SW/N",35.649861,-119.9593,705,1986-10-19,2021-10-18,214.884,0.27,True,21.67306952369375,6.507881206167311,217.06273234555496,24.377845636993467,137,45,0.36584556726713413
+56,0.9507382550335453,1.5730201384540174,0.9432962947237639,1.2234506866078318,1.882547193254743,56,Los Banos,Los Banos,South Central Region Office,Merced,6/28/1988,9/14/2022,False,True,95,Grass,37º5'48N / 37.096694,-120º45'14W / -120.7539,"DATE: 11-12-02<br/><br/>
+STATION#:56<br/>                        STATION NAME: Los Banos<br/>
+ETO ZONE: 15<br/>
+PREVAILING WINDS: NW<br/>
+LOCAL CHARACTER: Primarily agricultural area.  Large fields of cotton, grapes and orchards characterize regional farming operations.<br/><br/>
+
+DESCRIPTION OF STATION SITE:<br/> 
+Located on a large flood irrigated pasture.  The grass is primarily clumpy fescue that is grazed to a general height of approximately 12ft. The station is surrounded with a Critter Corral type of enclosure.<br/><br/>
+ 
+NORTH:<br/>
+300+ft: Grass pasture<br/><br/>
+
+EAST:<br/>
+1200+ft; Grass pasture<br/><br/>
+
+SOUTH:<br/>
+300+ft: Grass pasture<br/><br/>
+
+WEST:<br/>
+400+ft: Grass pasture<br/><br/>
+
+COMMENTS:<br/>",37.096694,-120.7539,95,1988-06-28,2022-09-14,28.956000000000003,2.0,True,4.092300903551242,10.145377923026132,29.41307424224361,1.6227069670148642,17,33,0.2727124315742866
+70,0.7576315789473571,0.7365789322770739,0.371979193014623,0.5094397778780957,1.155574825638575,70,Manteca,Manteca,North Central Region Office,San Joaquin,11/12/1987,12/31/2050,True,True,33,Grass,37º50'5N / 37.834822,-121º13'23W / -121.22319,"DATE: 11-18-02<br/><br/>
+STATION#:70<br/>                             STATION NAME: Manteca<br/> 
+ETO ZONE: 12<br/>   
+PREVAILING WINDS: NW<br/>  
+LOCAL CHARACTER: Largely agricultural with new housing increasing in the West. Principle agricultural activities include all grapes, all types of tomatoes, all types of cherries and almond meats.<br/><br/>
+
+DESCRIPTION OF STATION SITE:<br/>
+ The station is located on the agricultural facility of Delta College.  It is located in a flood-irrigated pasture used primarily to graze sheep.  The pasture is maintained by the college staff/students.  It is enclosed with a livestock proof fence.<br/><br/> 
+
+NORTH:<br/>
+300ft: Pasture<br/>
+300-350 ft: Paved road/unpaved shoulders<br/>
+350+ ft; Single story houses<br/><br/>
+
+EAST:<br/>
+250ft: Pasture<br/>
+250ft: Pens associates with pasture<br/><br/>
+
+SOUTH:<br/>
+500+ ft: Pasture<br/><br/>
+ 
+WEST:<br/>
+500+ ft: Pasture<br/><br/>
+ 
+COMMENTS:<br/>
+Sometimes over-irrigated.",37.834822,-121.22319,33,1987-11-12,2050-12-31,10.0584,0.12,True,9.58334660553282,1.5719512039556744,9.693866083285938,3.404731071094448,28,55,-0.24819180106926142
+71,1.0510913930789743,0.7321306779646364,0.6672035401985505,0.7560232941054623,0.9244192257599241,71,Modesto,Modesto,South Central Region Office,Stanislaus,6/25/1987,12/31/2050,True,True,35,Grass,37º38'43N / 37.645222,-121º11'16W / -121.18776,"DATE: 11-12-02<br/><br/>
+STATION#:71<br/>                             STATION NAME: Modesto<br/>
+ETO ZONE: 14<br/>
+PREVAILING WINDS: NW<br/> 
+LOCAL CHARACTER: Agricultural area with primarily large operations.  Common crops and activity include cow/calf production, fruit and nut orchards and nursery.<br/><br/>
+
+DESCRIPTION OF STATION SITE:<br/>
+Located on a large ranch that specializes in production of breeding beef stock.
+The station is located in a critter corral type of metal enclosure in a flood-irrigated pasture.<br/><br/>
+
+NORTH:<br/>
+500+ ft: Irrigated pasture<br/><br/>
+
+EAST:<br/>
+500+ ft: irrigated pasture<br/><br/>
+
+SOUTH:<br/>
+200ft: irrigated pasture<br/>
+200+ ft: native vegetation<br/><br/>
+
+WEST:<br/>
+200ft: irrigated pasture<br/>
+200-300+ ft: native vegetation<br/>
+300-350ft: paved ranch road<br/>
+350ft: irrigated pasture<br/><br/>
+
+COMMENTS:<br/>
+Pasture may be allowed to go fallow when water is short.  Native vegetation appears to creeping into some of the surrounding irrigated areas.  Site is subject to flooding during wet winter from river overflow.",37.645222,-121.18776,35,1987-06-25,2050-12-31,10.668,1.01,True,14.078224441731926,11.096909238175607,11.020329893866592,2.823548536387909,42,66,-0.29506809897351194
+80,1.0714315942204395,0.6433752286075936,1.9949744669601395,1.9609484216690207,1.4745872216057756,80,Fresno State,Fresno,South Central Region Office,Fresno,10/3/1988,12/31/2050,True,True,339,Grass,36º49'15N / 36.820833,-119º44'32W / -119.74231,"DATE: 11-12-02<br/><br/>
+STATION #:  80 <br/>                                                     
+STATION NAME: Fresno<br/> 
+ETO ZONE: 12<br/>
+PREVAILING WINDS: NW<br/> 
+LOCAL CHARACTER: Located on the north campus of CSU Fresno.  This is a large island of agricultural activity in the north area of Fresno.  This portion of the campus is used for livestock maintenance in small paddock or large pasture settings.<br/><br/>
+
+DESCRIPTION OF STATION SITE:<br/>
+The station is placed in a flood irrigated pasture area that is used for grazing.  It is protected by a large critter corral type enclosure.  Within the enclosure there are additional instruments and evaporation pan that comprise an agroclimatic site operated by the Department of Water Resources office in Fresno.<br/><br/>
+
+NORTH:<br/>
+500+ ft: Irrigated pasture<br/><br/>
+
+EAST:<br/>
+300+ ft: Irrigated pasture<br/><br/>
+
+SOUTH:<br/>
+500+ ft: Irrigated pasture<br/><br/>
+
+WEST:<br/>
+175ft: Irrigated pasture<br/>
+175-200ft; Unpaved access road<br/>
+200-500+ ft: Irrigated pasture<br/><br/>
+
+COMMENTS:<br/>
+The the grass can vary in height during the growing season. It has been noted that, at times the instrumentation appear to accumulate a layer of dust, possibly from the unpaved access roads and nearby farming activities. It is serviced frequently.",36.820833,-119.74231,339,1988-10-03,2050-12-31,103.3272,0.39,True,1.1843604242504997,3.898906066583512,108.52867390133716,4.952707711318584,33,56,0.8895168274485812
+84,1.1585542168674565,1.376666677430874,0.6318666436351263,1.3025559645432692,1.4126996589429452,84,Browns Valley,Marysville,North Central Region Office,Yuba,4/13/1989,12/31/2050,True,True,940,Grass,39º15'9N / 39.252561,-121º18'56W / -121.31567,"DATE: 11-25-02<br />
+STATION#:84<br />
+STATION NAME: Brown`s Valley<br />
+ETO ZONE: 14<br />
+PREVAILING WINDS: S<br />
+LOCAL CHARACTER: Foothill agricultural with some seasonal recreation. Agriculture is cow/calf operations and some orchards.<br />
+<br />
+DESCRIPTION OF STATION SITE:<br />
+Located on a University of California Field Station. It is installed in a large hillside sprinkler irrigated pasture.<br />
+<br />
+NORTH:<br />
+300  ft: Pasture<br />
+<br />
+EAST:<br />
+300  ft: Pasture<br />
+<br />
+SOUTH:<br />
+200ft: Pasture<br />
+200-225ft: Unpaved road<br />
+225ft: Corrals, pens and barns.<br />
+<br />
+WEST:<br />
+300  ft: Pasture<br />
+<br />
+COMMENTS:<br />",39.252561,-121.31567,940,1989-04-13,2050-12-31,286.512,15.69,True,44.53690983838968,4.555091267213753,226.7548002811062,113.30133445434814,525,21,0.14400174767581264
+86,1.284550898203581,0.5133065726217483,0.37546703711564766,0.4676518788594686,3.0072561115561847,86,Lindcove,Lindcove,South Central Region Office,Tulare,5/31/1989,12/3/2020,False,False,480,Grass,36º21'38N / 36.3605,-119º3'34W / -119.05935,"DATE: 11-12-02<br/><br/>
+STATION#:86<br/>                        STATION NAME: Lindcove<br/>
+ETO ZONE: 12<br/>
+PREVAILING WINDS: NW<br/> 
+LOCAL CHARACTER: Agricultural activities predominate in the region.  Primary operations include Valencia and navel oranges and other citrus, grapes and cow/calf ranches.<br/><br/>
+
+DESCRIPTION OF STATION SITE:<br/>
+Located on a University of California citrus research facility.  The station has been installed on a small plot of grass.<br/><br/> 
+
+NORTH:<br/>
+50ft: Irrigated grass<br/>
+50-100+ ft: Bare soil<br/><br/>
+
+EAST:<br/>
+50ft: Irrigated grass<br/>
+50-500+ ft: Citrus grove<br/><br/>
+
+SOUTH:<br/>
+50ft: Irrigated grass<br/>
+50-300+ ft Bare soil<br/><br/>
+
+WEST:<br/>
+50ft: Irrigated grass<br/>
+50-100ft: Bare soil<br/>
+100-150+ ft: Paved road<br/><br/>
+
+COMMENTS:<br/>
+Poorly located site when compared to CIMIS site criteria.  Predominant value is for local climatological data usable for research purposes.",36.3605,-119.05935,480,1989-05-31,2020-12-03,146.304,3.0,True,2.6454345201682345,1.3399564757931826,168.90180158430482,58.65251539592315,379,25,-0.8168990193441124
+92,1.1225000000000231,0.7782715923348325,0.4708919389353645,0.519275207519531,1.2591254970005572,92,Kesterson,Gustine,South Central Region Office,Merced,10/13/1989,10/11/2021,False,False,75,Grass,37º13'55N / 37.231861,-120º52'51W / -120.88082,"DATE: 11-12-02<br/><br/>	
+STATION#:92<br/>                             STATION NAME: Kesterson<br/>
+ETO ZONE: 15<br/>
+PREVAILING WINDS: NW<br/> 
+LOCAL CHARACTER: Located in the Kesterson Marsh area to provide research support data.  Kesterson Marsh is a large native vegetation region.<br/><br/>   
+
+DESCRIPTION OF STATION SITE:<br/>
+The station is located in a dry native vegetation area adjacent to an elevated access road.<br/><br/>
+
+NORTH:<br/>
+2500+ ft: non-irrigated native vegetation<br/><br/>
+
+EAST:<br/>
+2500+ ft: non-irrigated native vegetation<br/><br/>
+
+SOUTH:<br/>
+100ft: non-irrigated native vegetation<br/>
+100-175ft: elevated levee access road approximately 8-10` above grade.<br/><br/>
+
+WEST:<br/>
+2500+ ft: non-irrigated native vegetation<br/><br/>
+
+COMMENTS:<br/>
+This is a non-ETo site.  The native vegetation is untended and may, at times exceed 3-4` tall and can be quite dense around the station.  During the winter, the site is usually flooded with a foot or more of water.",37.231861,-120.88082,75,1989-10-13,2021-10-11,22.86,8.5,True,15.538450532028191,0.7093185739668907,24.77959520147248,1.7618148339884738,38,61,-0.6032247924804921
+105,1.8921460746460592,1.2150000482797627,0.7732715336734886,0.8390782145276835,1.361420965095978,105,Westlands,Tranquility,South Central Region Office,Fresno,4/17/1992,12/31/2050,True,True,191,Grass,36º38'3N / 36.634028,-120º22'55W / -120.38181,"DATE:11-12-02<br />
+<br />
+STATION #:105<br />
+STATION NAME: Westlands (Tranquility)<br />
+ETO ZONE: 16<br />
+PREVAILING WINDS: NW<br />
+LOCAL CHARACTER: Located in an agricultural area near row crops (cotton), alfalfa<br />
+<br />
+DESCRIPTION OF STATION SITE:<br />
+The station is on an approximately 200`x200` grassed area on the grounds of the Tranquility Field Office (Westlands). The grass is a seasonal mixture and is irrigated via a subterranean sprinkler system.<br />
+<br />
+NORTH:<br />
+150ft: grassed area<br />
+150ft: cotton fields<br />
+<br />
+EAST :<br />
+50ft: grassed area<br />
+50-125ft: asphalt drive and equipment storage<br />
+125  ft cotton fields<br />
+<br />
+SOUTH:<br />
+50ft: grassed area 50-150 ft: asphalt parking area/storage lot<br />
+150ft: Northeast corner of a steel maintenance building<br />
+<br />
+WEST:<br />
+150ft: grassed area<br />
+150-250 ft: gravel storage area 250  ft cotton field<br />
+<br />
+COMMENTS:<br />
+Grass is quite often droughty and overgrown with weeds. Prevailing winds are approximately Northwest across the cotton fields.",36.634028,-120.38181,191,1992-04-17,2050-12-31,58.216800000000006,2.2,True,5.501094310110834,12.745677911008848,57.12688239425703,5.238368608881634,28,92,-1.0530678601183756
+121,2.1064900662251427,1.8975000977516174,1.6863137380530437,1.9668942483055665,2.8781649122051163,121,Dixon,Dixon,North Central Region Office,Solano,9/20/1994,7/6/2021,False,True,37,Grass,38º24'56N / 38.415564,-121º47'13W / -121.78691,,38.415564,-121.78691,37,1994-09-20,2021-07-06,11.2776,0.0,True,13.385340405219736,13.309963599814324,10.992259126144338,3.551644215280869,34,57,-0.1395958179195762
+124,0.8091139240506449,1.2879592320723394,0.7361723016947508,1.2829973908508712,1.2591299843954875,124,Panoche,Firebaugh,South Central Region Office,Fresno,7/27/1995,12/31/2050,True,True,183,Grass,36º53'24N / 36.890056,-120º43'53W / -120.73141,"DATE: 11-12-02<br/><br/>
+STATION #:124<br/>	                 
+STATION NAME:  Panoche<br/>
+ETO ZONE: 15<br/>
+PREVAILING WINDS:  WNW<br/>
+LOCAL CHARACTER:  The area is characterized by agricultural activies.  Primarily alfalfa hay, cotton, and other row crops with limited livestock.<br/><br/>
+
+DESCRIPTION OF STATION SITE:<br/>
+Located at the Panoche Water District office near Firebaugh.  The site is a grassed area lying parallel with the east-west frontage road.<br/><br/>
+
+NORTH:<br/>
+125+ ft: Grass/pasture<br/>
+125-150ft: Two lane paved road<br/> 
+150+ ft; Alfalfa<br/><br/> 
+
+EAST :<br/>
+300+ ft: Grass/pasture<br/>
+300+ ft: Gravel driveway and district office buildings<br/><br/>
+
+SOUTH:<br/>
+75ft: Grass/pasture<br/>
+75+ ft: Gravel driveway and pipe storage yard<br/><br/> 
+
+WEST:<br/>
+355ft: Grass/pasture<br/>
+355+ ft: Gravel driveway and neighboring home<br/><br/> 
+
+COMMENTS:<br/>
+The grass/pasture area is typically kept irrigated and is sometimes used to pasture calves.  However the grass height is variable from month to month and is usually higher than the CIMIS optimal 6 inches.  The station is located to maximize the prevailing wind fetch.",36.890056,-120.73141,183,1995-07-27,2050-12-31,55.778400000000005,1.75,True,13.230620824410098,13.345929046041052,59.949086889400434,14.77403355968611,75,43,0.4738834668002263
+125,0.8312977994227971,1.319050522548638,0.6704030127400538,1.0689340944597736,2.534252782924447,125,Arvin-Edison,Arvin,South Central Region Office,Kern,3/22/1995,12/31/2050,True,True,500,Grass,35º12'20N / 35.205583,-118º46'42W / -118.77841,"DATE: 11-18-02<br />
+<br />
+STATION#:125<br />
+STATION NAME: Arvin-Edison<br />
+ETO ZONE: 15<br />
+PREVAILING WINDS: W <br />
+LOCAL CHARACTER: Agricultural area.<br />
+<br />
+DESCRIPTION OF STATION SITE: Located on the grounds of the Arvin-Edison Water Storage District offices. The site is a triangular shaped turf area planted to sprinkler irrigated seasonal grasses.<br />
+<br />
+NORTH:<br />
+200ft: Turf<br />
+200  ft: Equipment yard<br />
+<br />
+EAST:<br />
+75ft: Turf<br />
+75-100ft: Bare soil<br />
+100  ft: Vineyard<br />
+100  ft: Equipment yard (NE)<br />
+<br />
+SOUTH:<br />
+350  ft: Turf<br />
+<br />
+WEST:<br />
+350ft: Turf<br />
+<br />
+COMMENTS:<br />",35.205583,-118.77841,500,1995-03-22,2050-12-31,152.4,2.66,True,11.152550088276314,5.057888798560112,206.66017020790923,119.39295995786064,698,48,0.23763629503697647
+131,0.8900000000000033,2.0427506189941234,0.751403027184468,1.2430030358401094,2.1067634863150966,131,Fair Oaks,Fair Oaks,North Central Region Office,Sacramento,4/18/1997,12/31/2050,True,True,265,Grass,38º39'0N / 38.649964,-121º13'8W / -121.21887,,38.649964,-121.21887,265,1997-04-18,2050-12-31,80.772,3.36,True,20.68117348287081,3.695120369633887,62.27113651290245,16.089185806974687,81,32,0.35300303584010606
+135,1.5285714285714156,1.0170237902729284,0.44587855404149135,0.5272871537642043,1.6304665175060293,135,Blythe NE,Blythe,Southern Region Office,Riverside,1/16/1997,12/31/2050,True,False,275,Grass,33º39'46N / 33.662869,-114º33'29W / -114.55811,,33.662869,-114.55811,275,1997-01-16,2050-12-31,83.82000000000001,16.58,True,0.9033408710209052,6.576753735526332,84.19189232279088,3.0730029767363294,46,23,-1.0012842748072113
+139,0.8740026132404277,1.1067610333416757,0.759805685511812,0.4969456654204054,1.407524820823809,139,Winters,Winters,North Central Region Office,Solano,6/15/1998,12/31/2050,True,True,136,Grass,38º30'5N / 38.501258,-121º58'43W / -121.97853,,38.501258,-121.97853,136,1998-06-15,2050-12-31,41.4528,0.82,True,2.43257644936899,2.442693997664804,50.22806051346314,19.510080967130897,127,34,-0.3770569478200223
+142,1.1225503355704518,1.1567114022904197,0.5240941385127722,0.4682342888327211,2.092409868938167,142,Orange Cove,Orange Cove,South Central Region Office,Fresno,1/1/1999,1/6/2023,False,False,450,Grass,36º43'16N / 36.721083,-119º23'21W / -119.38903,"DATE: 11-18-02<br/><br/>
+STATION:#;142<br/>                           STATION NAME:  Orangecove<br/>
+ETO ZONE:   12<br/>
+PREVAILING WINDS: Westerly<br/>  
+LOCAL CHARACTER:  Agricultural area known primarily for its citrus, stone fruits, alfalfa and cow-calf operations.<br/><br/>
+
+DESCRIPTION OF STATION SITE:<br/>
+ Located on a private farm operation, it was installed in a flood irrigated pasture.<br/><br/>
+
+NORTH:<br/>
+300+ ft: Pasture<br/><br/>
+
+EAST:<br/>
+200ft: Pasture<br/>
+200+ ft: Home and trees  (SE)<br/><br/>
+ 
+SOUTH:<br/>
+300+ ft: Pasture<br/><br/>
+
+WEST:<br/>
+300+ ft: Pasture<br/><br/>
+ 
+COMMENTS:<br/>",36.721083,-119.38903,450,1999-01-01,2023-01-06,137.16,3.38,True,17.153372357838332,8.786165046883356,207.98333073065223,100.50583047911844,513,43,-0.6543160467377307
+146,1.2753599999999823,2.002083392051004,0.6998595285628524,1.0823264193372664,1.6316349159292631,146,Belridge,Lost Hills,South Central Region Office,Kern,10/9/1998,12/31/2050,True,True,410,Grass,35º30'21N / 35.505833,-119º41'28W / -119.69114,,35.505833,-119.69114,410,1998-10-09,2050-12-31,124.968,2.96,True,0.142687097501046,11.3973220600974,128.07888335553258,23.42362552362505,98,29,-0.19303358066271592
+148,1.4523551863493451,0.7822225617139422,0.722440779881434,0.7939313483960699,1.1653920577408425,148,Merced,Merced,South Central Region Office,Merced,1/4/1999,4/9/2024,False,True,200,Grass,37º18'51N / 37.314139,-120º23'12W / -120.3867,"DATE: 11-18-02<br/><br/>
+STATION#:148<br/>                            STATION NAME:  Merced<br/>
+ETO ZONE: 12<br/>		 
+PREVAILING WINDS: NW<br/>
+LOCAL CHARACTER: Rural county with primarily agricultural interests.  Common farming activities include tomatoes, cow-calf operations, dairy, stone fruits and almonds.<br/><br/>  
+
+DESCRIPTION OF STATION SITE:<br/>
+ Located on a private farm in a flood-irrigated pasture.  It was installed in a fenced enclosure for protection from livestock.  The pasture could be better utilized, as it is sometimes tall and uneven.<br/><br/>
+
+NORTH:<br/>
+150ft: Pasture<br/>
+150ft: Bear Creek<br/>
+150ft: Walnuts (NE)<br/>  
+150ft: Alfalfa/mixed pasture (NW)<br/><br/>
+
+EAST:<br/>
+200+ ft: Pasture<br/>
+200+ ft: Plums<br/><br/>
+ 
+SOUTH:<br/>
+120ft: Pasture<br/>
+120ft: Gravel parking area (SW)<br/>
+120-200ft: Cement Slab (SE)<br/>
+200+ ft: Farm buildings (SE)<br/><br/>
+
+WEST:<br/>
+180ft: Pasture<br/>
+180+ ft: Walnuts<br/><br/>
+ 
+COMMENTS:<br/>",37.314139,-120.3867,200,1999-01-04,2024-04-09,60.96,0.11,True,37.5490277430402,7.333547219730602,65.06120891753798,5.811977657052637,51,114,-0.6584238379532752
+151,1.1827397260273824,1.3849260263066052,0.8698609822528589,0.6684821141909247,1.9154597928106387,151,Ripley,Blythe,Southern Region Office,Riverside,12/19/1998,12/31/2050,True,True,251,Alfalfa,33º31'56N / 33.532222,-114º38'2W / -114.63389,"DATE: 11-12-02<br />
+<br />
+STATION#:151<br />
+STATION NAME: Ripley<br />
+ETO ZONE: 18<br />
+PREVAILING WINDS: S<br />
+LOCAL CHARACTER: Desert region that is primarily a recreational and agricultural in character. Common Crops include alfalfa hay and vegetables.<br />
+<br />
+DESCRIPTION OF STATION SITE: The station is located in the middle of an alfalfa field.<br />
+<br />
+NORTH:<br />
+300 ft: Alfalfa<br />
+<br />
+EAST:<br />
+300 ft: Alfalfa<br />
+<br />
+SOUTH:<br />
+300 ft: Alfalfa<br />
+<br />
+WEST:<br />
+300 ft: Alfalfa<br />
+<br />
+COMMENTS:<br />
+The nature of alfalfa cultivation and utilization is a cause for large fluctuations of site conditions, which will affect the station environment. The crop and field will not be irrigated prior to cutting, field curing, bailing and removal to storage. After it has been cut and baled, the crop has a period of growth that is not the same as it was before it was cut. This will affect the consistentcy of estimated ETr in some manner.",33.532222,-114.63389,251,1998-12-19,2050-12-31,76.5048,0.6,True,15.298466985761776,8.61150982300244,75.32196370024604,1.8253287823381488,19,20,-0.5142576118364577
+163,1.0882142857143113,0.8207142657134683,0.8431696385544326,1.0427370132938507,1.428284708658854,163,Atascadero,Atascadero,Southern Region Office,San Luis Obispo,11/21/2000,12/31/2050,True,True,885,Grass,35º28'21N / 35.472556,-120º38'53W / -120.64814,,35.472556,-120.64814,885,2000-11-21,2050-12-31,269.748,6.71,True,17.202085457690956,0.2693137310557173,326.260101755983,59.71536971204163,273,147,-0.045477272420460624
+169,1.4738356164383561,1.0224683278346358,0.9026324577947968,0.976061409963688,1.2610242058249077,169,Porterville,Porterville,South Central Region Office,Tulare,8/2/2000,3/17/2023,False,True,400,Grass,36º4'55N / 36.082056,-119º5'36W / -119.09342,"DATE: 11-18-02<br />
+<br />
+STATION#:169<br />
+STATION NAME: Porterville<br />
+ETO ZONE: 12<br />
+PREVAILING WINDS: W<br />
+LOCAL CHARACTER: Agricultural region including grapes (raisin/wine), citrus, and cotton.<br />
+<br />
+DESCRIPTION OF STATION SITE:<br />
+The station has been installed on a private farm. The grass is flood irrigated.<br />
+<br />
+NORTH:<br />
+200ft: Pasture<br />
+200  ft: Walnut trees (NW)<br />
+200  ft: Pasture (NE)<br />
+<br />
+EAST:<br />
+300  ft: Pasture<br />
+<br />
+SOUTH:<br />
+200ft: Pasture<br />
+200  ft: Walnut trees (SE)<br />
+200  ft: Pasture (SW)<br />
+<br />
+WEST:<br />
+300  ft: Pasture<br />
+<br />
+COMMENTS:<br />",36.082056,-119.09342,400,2000-08-02,2023-03-17,121.92,0.1,True,20.962641607836797,4.0488091012936405,123.3643924015118,5.858757459690111,31,93,-0.4977742064746682
+175,1.1570588235293982,2.4022516838614116,0.9566191919699978,2.3735223833298837,1.9097495375879552,175,Palo Verde II,Palo Verde,Southern Region Office,Imperial,1/11/2001,3/26/2025,False,False,230,Alfalfa,33º23'1N / 33.383697,-114º43'9W / -114.71921,,33.383697,-114.71921,230,2001-01-11,2025-03-26,70.104,17.62,True,0.5210691232982312,26.07781869356733,79.478329967809,18.945942413081696,140,21,1.2164635598004856
+182,1.974318250377048,1.7263153978039694,1.0528260571402384,0.8079147045598979,1.163751331231344,182,Delano,Delano,South Central Region Office,Tulare,3/21/2002,12/31/2050,True,True,300,Grass,35º49'59N / 35.833,-119º15'21W / -119.25596,,35.833,-119.25596,300,2002-03-21,2050-12-31,91.44,0.11,True,17.175935753636054,7.197101739999011,94.47522724405448,8.679509389753388,41,44,-1.16640354581715
+188,1.7066666666666919,1.503239423015588,0.5781971675048674,0.714774977992958,1.4616167195638021,188,Madera II,Madera,South Central Region Office,Madera,3/27/2013,6/23/2018,False,True,242,Grass,37º1'12N / 37.02,-120º9'0W / -120.15,"DATE: 03-27-13<br />
+<br />
+STATION#;188<br />
+STATION NAME: Madera II<br />
+ETO ZONE: 12<br />
+PREVAILING WINDS: NW<br />
+LOCAL CHARACTER: Agricultural region with primary crops including grapes, almonds, pistachios and nursery stock.<br />
+<br />
+DESCRIPTION OF STATION SITE:<br />
+Located in borderstrip irrigated pasture.<br />
+<br />
+NORTH:<br />
+500ft: Pasture<br />
+<br />
+EAST:<br />
+500ft: Pasture<br />
+<br />
+SOUTH:<br />
+500ft: Pasture<br />
+<br />
+WEST:<br />
+500ft: Pasture<br />
+<br />
+COMMENTS:<br />
+Station 145 was moved to this location (2 miles East) and renamed 188 to distinguish the slightly different location. Station 145 was activated On May 13, 1998.",37.02,-120.15,242,2013-03-27,2018-06-23,73.7616,0.0,True,3.256169577865762,5.234005353916241,76.13405403889476,4.5239275682664095,34,31,-0.9918916886737339
+190,1.2174888888889028,1.0246777979243136,0.8139812571746761,0.9547744072808164,1.1062412516276043,190,Five Points South West,Five Points,South Central Region Office,Fresno,7/2/2003,12/4/2019,False,False,270,Grass,36º22'55N / 36.382028,-120º13'47W / -120.22985,,36.382028,-120.22985,270,2003-07-02,2019-12-04,82.296,2.37,True,11.65116913940384,6.8989922745324295,86.74253743612685,9.660187793008271,51,32,-0.2627144816080864
+194,1.4565714285714315,0.7403053205455077,0.5374379186076765,0.7,1.234819616987041,194,Oakdale,Oakdale,South Central Region Office,Stanislaus,11/2/2004,12/31/2050,True,True,165,Grass,37º43'38N / 37.727194,-120º51'3W / -120.85086,,37.727194,-120.85086,165,2004-11-02,2050-12-31,50.292,0.22,True,20.354111618520918,7.849140315157498,52.73031171814048,6.463579336108369,48,64,-0.7565714285714316
+195,0.9605177626606171,2.6804992286366938,1.0584593572203917,1.5458991798194681,1.934703304437823,195,Auburn,Auburn,North Central Region Office,Placer,2/16/2005,12/31/2050,True,True,935,Grass,38º53'15N / 38.887603,-121º6'10W / -121.10291,"DATE: 11-12-02<br/><br/>
+STATION#:195<br/>                      STATION NAME: Auburn<br/>
+ETO ZONE: 14<br/>		
+PREVAILING WINDS:NW<br/> 
+LOCAL CHARACTER: <br/>
+Rolling hills with lots of trees and rural houses.  The site is located on what was previously an orchard.  There are still many fruit trees in the surrounding area.  Principle agricultural activities in the area include fruit and olives.<br/><br/>
+
+DESCRIPTION OF STATION SITE:<br/>
+The station is Set within the foothills of Auburn about ? mile from interstate 80. It is sprinkler-irrigated landscape grass. The site is owned and maintained by the Placer County Water Agency.  The site is referred to as the Heritage Center.<br/><br/>
+
+NORTH:<br/>
+0-30ft: Grass<br/>
+30-500 ft: Natural vegetation
+500+ ft; Sewage treatment ponds, followed by hills with natural vegetation with rural houses interspersed..<br/><br/>
+
+EAST:<br/>
+0-20ft: Grass<br/>
+20-500+ft: Natural vegetation with trees and hills.<br/><br/>
+
+SOUTH:<br/>
+0-60 ft: Grass<br/>
+60-120 ft:  Trees and natural vegetation.<br/>
+120-150 ft: Road<br/>
+150-500+ ft:  Natural vegetation with trees and hills.<br/><br/>
+
+WEST:<br/>
+0-20 ft: Grass<br/>
+20-60 ft: Gravel<br/>
+60-120ft: House<br/>
+120-140 ft: Grass, landscaped trees and bushes.<br/>
+140-500+ ft: Natural vegetation with trees and hills.<br/><br/>
+
+
+COMMENTS:<br/>
+Planning to replant grass this spring.<br/><br/>",38.887603,-121.10291,935,2005-02-16,2050-12-31,284.988,19.66,True,28.26688977101001,2.1622999089635995,320.77764990619977,74.32032700253657,339,26,0.5853814171588511
+203,1.7969333333333242,3.4115520285076304,4.013026533425785,3.8020017089843745,5.1068907433486554,203,Alpaugh,Alpaugh,South Central Region Office,Tulare,7/11/2006,11/16/2017,False,False,210,Grass,35º51'45N / 35.862583,-119º30'13W / -119.50357,"DATE: 07-11-06<br/><br/>
+
+STATION#: 203<br/>
+STATION NAME: Alpaugh<br/><br/>
+
+ETO ZONE: 15<br/>
+PREVAILING WINDS: N<br/>
+LOCAL CHARACTER: alfalfa hay, cotton, wheat.<br/><br/>
+
+DESCRIPTION OF STATION SITE: <br/>
+Located on a large farming operation, the station was installed in a turf area surrounded by alfalfa.<br/><br/>
+
+NORTH: <br/>
+30 ft.Turf.<br/>
+30 + ft: alfalfa.<br/><br/>
+
+EAST: <br/>
+30 ft.  Turf.<br/>
+30+  alfalfa.<br/><br/>
+
+SOUTH: <br/>
+30 ft  Turf.<br/>
+30-60 ft  gravel/dirt road.<br/>
+60 + ft   alfalfa.<br/><br/>
+
+WEST:<br/>
+30 ft. Turf.<br/>
+30 -60 ft.  gravel road.<br/>
+60 + ft  alfalfa.<br/><br/>
+
+COMMENTS:<br/>
+Minimal turf and sometimes erratic irrigation schedule makes this site one that should be used with some caution.<br/><br/>",35.862583,-119.50357,210,2006-07-11,2017-11-16,64.00800000000001,10.51,True,20.7041899590742,13.535912729302218,61.84357752522749,1.4612795945999713,11,30,2.0050683756510503
+205,1.5364668868963525,1.518282201831326,0.38823601391164014,0.7952698155071751,1.2752304077148438,205,Coalinga,Coalinga,South Central Region Office,Fresno,3/25/2010,12/31/2050,True,False,730,Grass,36º10'33N / 36.175833,-120º21'37W / -120.36027,,36.175833,-120.36027,730,2010-03-25,2050-12-31,222.504,10.53,True,25.72786388435301,4.470683198213202,233.25042991354232,27.62807554506259,146,38,-0.7411970713891773
+206,0.7782312925169819,0.9373469296944186,0.8644352696091571,0.5343278116254662,1.0731144919324276,206,Denair II,Denair,South Central Region Office,Stanislaus,4/9/2009,12/31/2050,True,True,150,Grass,37º32'45N / 37.545869,-120º45'16W / -120.75453,,37.545869,-120.75453,150,2009-04-09,2050-12-31,45.72,0.12,True,2.3272782329176365,3.435699071328569,49.6783364885354,8.392007534675422,49,59,-0.2439034808915157
+212,1.455471698113221,1.8951973879072614,0.7572302948943401,0.7598563746402134,1.8974978464954304,212,Hastings Tract East,Dixon,North Central Region Office,Solano,10/20/2009,12/31/2050,True,True,7,Grass,38º16'41N / 38.278056,-121º44'28W / -121.74111,,38.278056,-121.74111,7,2009-10-20,2050-12-31,2.1336,6.21,True,4.3597407638922325,14.68224941096704,0.6361401900022766,1.742522573304155,22,91,-0.6956153234730076
+222,1.489999999999992,0.6849999904632569,0.4627482746851217,0.6719749412145739,1.6005462646484374,222,Gerber South,Gerber,Northern Region Office,Tehama,8/13/2014,12/31/2050,True,True,246,Grass,40º2'24N / 40.040006,-122º9'16W / -122.154539,"DATE: 08-18-2014&nbsp;<br />
+<br />
+STATION&nbsp;#:&nbsp; 222 <br />
+STATION NAME:&nbsp; Gerber South <br />
+ZONE:&nbsp; 14 <br />
+PREVAILING WINDS:&nbsp; NNW, SSE <br />
+<br />
+DESCRIPTION OF STATION SITE:&nbsp; Surrounded by irrigated pasture. <br />
+NORTH: 384ft <br />
+EAST: 560ft <br />
+WEST: 830ft <br />
+SOUTH:880ft <br />
+<br />
+COMMENTS: Located on private ranch in a large grass pasture. A 5 ft paneled fence surrounds the station. The pasture is of high quality and properly maintained using flood irrigation.",40.040006,-122.154539,246,2014-08-13,2050-12-31,74.9808,0.48,True,0.7239758361175295,1.5558855902330788,75.10568511319035,6.860976503801564,31,62,-0.8180250587854181
+226,0.9334139116008895,1.2930220206693248,0.3359519988560914,0.636078982009101,1.3152113924321438,226,Woodland,Woodland,North Central Region Office,Yolo,5/12/2011,12/31/2050,True,True,82,Grass,38º40'22N / 38.672722,-121º48'42W / -121.81172,,38.672722,-121.81172,82,2011-05-12,2050-12-31,24.9936,0.76,True,15.539198168097649,1.911315163293029,22.81523409748077,4.643102290897822,36,22,-0.29733492959178853
+235,1.1423913043478515,0.8472727104411886,0.5474389089064466,0.9840985384854406,1.3081319041066353,235,Verona,Nicolaus,North Central Region Office,Sutter,5/18/2012,12/31/2050,True,True,24,Grass,38º47'53N / 38.797944,-121º36'41W / -121.61136,,38.797944,-121.61136,24,2012-05-18,2050-12-31,7.315200000000001,6.91,True,9.862351473365257,9.14228272509214,6.775665949932581,2.132796568746763,26,55,-0.15829276586241092
+242,1.4727659574468301,0.7978749242331831,0.8055043881868615,0.6333439387328232,0.9910008207280585,242,Staten Island,Walnut Grove,North Central Region Office,San Joaquin,11/5/2015,12/31/2050,True,True,-10,Grass,38º11'33N / 38.192397,-121º30'37W / -121.510261,"<p>DATE: 11-05-2015<br />
+STATION #:&nbsp; 242 <br />
+STATION NAME:&nbsp; Staten Island<br />
+ETO ZONE:&nbsp; 14<br />
+PREVAILING WINDS:&nbsp; West </p>
+<p>LOCAL CHARACTER:&nbsp; Staten Island, historically reclaimed agricultural land in the Delta, is managed as agricultural land by The Nature Conservancy (TNC).&nbsp; Located roughly south of Walnut Grove, CA, this island is home to many important species of animals. The land is planted in corn, wheat, and tomatoes, and provides grazing pasture for cattle.&nbsp; <br />
+DESCRIPTION OF STATION SITE: This CIMIS Station is located in the north central area of the island in a flood irrigated pasture.&nbsp; Originally planned for a 35 acre plot, the Station site is surrounded by hundreds of acres of well maintained pasture.&nbsp;&nbsp; <br />
+NORTH: <br />
+3500ft: Pasture, then farm buildings and the Mokelumne River<br />
+EAST: <br />
+900ft: Pasture, then a road and a building<br />
+SOUTH: <br />
+2500ft: Pasture, then road<br />
+WEST:<br />
+5000ft: Pasture, then the Mokelumne River<br />
+COMMENTS: Acquired by TNC in 2001 with $30 million in public grant funds from CA Propositions 204 and 13, Staten Island is a great place to see the benefit agriculture has on the State's bird populations, particularly Sandhill Cranes. </p>",38.192397,-121.510261,-10,2015-11-05,2050-12-31,-3.048,2.85,True,7.492265556868894,4.581712851886033,-3.129721548568104,2.289429884345786,28,61,-0.8394220187140069
+243,1.220352941176494,0.8976470981231506,0.5996941120802042,0.8282120142227563,1.1522500430836398,243,Ryde,Walnut Grove,North Central Region Office,Sacramento,12/16/2015,12/31/2050,True,True,-10,Grass,38º14'59N / 38.249622,-121º33'20W / -121.555528,"DATE: 7-13-2016<br />
+<br />
+STATION #:&nbsp; 243 <br />
+STATION NAME:&nbsp; Ryde<br />
+<br />
+ETO ZONE:&nbsp; 14<br />
+PREVAILING WINDS:&nbsp; West <br />
+<br />
+LOCAL CHARACTER:&nbsp; Grand Island is historically reclaimed agricultural land in the Delta. Ryde is a small unincorporated agricultural community located roughly 2.5 miles west of Walnut Grove, CA.&nbsp;&nbsp;&nbsp;<br />
+ <br />
+DESCRIPTION OF STATION SITE: This CIMIS Station is located in the north central area of the island in a flood irrigated pasture.&nbsp; Station site is surrounded by hundreds of acres of agriculture.&nbsp; <br />
+<br />
+NORTH: <br />
+405ft: Pasture, then agricultural fields.<br />
+<br />
+EAST: <br />
+555ft: Pasture, then agricultural fields.<br />
+<br />
+SOUTH: <br />
+420ft: Pasture, then trees and agricultural ditch.<br />
+<br />
+WEST:<br />
+525ft:&nbsp; Pasture, then agricultural fields.<br />
+<br />
+COMMENTS: Station data should closely follow station 242 data, only 4.5 miles to the southeast.",38.249622,-121.555528,-10,2015-12-16,2050-12-31,-3.048,3.9,True,7.492265556868894,3.848684325372096,-1.792004069685018,2.7393611543413225,32,55,-0.3921409269537377
+244,1.067499999999979,0.59000004529953,0.5663450325833776,0.8614644368489582,0.7326136596462818,244,Biggs,Biggs,Northern Region Office,Butte,6/18/2015,12/31/2050,True,True,72,Grass,39º23'12N / 39.386632,-121º50'7W / -121.835278,"DATE: 10-06-2015<br />
+<br />
+STATION #:&nbsp; 244 <br />
+STATION NAME:&nbsp; Biggs<br />
+<br />
+ETO ZONE:&nbsp; 12<br />
+PREVAILING WINDS:&nbsp; SW and SSW&nbsp;<br />
+<br />
+LOCAL CHARACTER:&nbsp; The Biggs CIMIS station is located on Schohr Ranch in northern California near the cities of Biggs and Gridley, in rice country.&nbsp; This site is just north of the Sutter Buttes, and still in the Sacramento Valley.&nbsp;<br />
+<br />
+DESCRIPTION OF STATION SITE: This CIMIS Station is located on a 14 acre pasture west of Cherokee Canal, and north of Gridley Highway. &nbsp;The pasture is adjacent to wetlands and grasslands, and is irrigated by border-check and surface flood groundwater. <br />
+<br />
+NORTH: <br />
+480ft: Pasture, then gravel road and pasture <br />
+<br />
+EAST: <br />
+380ft: Pasture, then gravel road and pasture<br />
+<br />
+SOUTH: <br />
+760ft: Pasture, then Medium canal along field border and wetland<br />
+<br />
+WEST:<br />
+330ft: Pasture, then wetland<br />
+<br />
+COMMENTS:<br />
+This is a secure, irregular shaped field with good exposure.&nbsp; Prevailing wind direction has over 500 feet of fetch from the direction of a partially dry wetland. <br />",39.386632,-121.835278,72,2015-06-18,2050-12-31,21.9456,7.71,True,24.123393930370444,11.85405103987611,20.861215509376912,2.1806254910766665,41,32,-0.20603556315102078
+247,1.7887804878049038,2.2315854219310904,1.3825586158014709,1.3513526710304054,2.094399019566978,247,Jersey Island,Oakley,North Central Region Office,Contra Costa,7/1/2016,12/31/2050,True,True,-12,Grass,38º2'0N / 38.033386,-121º42'4W / -121.701247,"DATE: 7-13-2016<br />
+<br />
+STATION #:&nbsp; 247 <br />
+STATION NAME:&nbsp; Jersey Island<br />
+<br />
+ETO ZONE:&nbsp; 14<br />
+PREVAILING WINDS:&nbsp; West <br />
+<br />
+LOCAL CHARACTER:&nbsp; Jersey Island is historically reclaimed agricultural land in the Delta. Oakley is a city located roughly less than 2 miles southwest of the island, across a large slough.&nbsp;&nbsp;<br />
+&nbsp; <br />
+DESCRIPTION OF STATION SITE: This CIMIS Station is located in the western area of the island in a flood irrigated pasture.&nbsp; Station site is surrounded by hundreds of acres of agriculture.&nbsp; <br />
+<br />
+NORTH: <br />
+1290ft: Pasture, then levee to San Joaquin River.<br />
+<br />
+EAST: <br />
+1260ft: Pasture, then levee to San Joaquin River.<br />
+<br />
+SOUTH: <br />
+490ft: Pasture, then agricultural ditch.<br />
+<br />
+WEST:<br />
+1460ft:&nbsp; Pasture, then agricultural ditch.<br />
+<br />
+COMMENTS: Station 247 is a marvelous CIMIS location with plenty of exposure and fetch.&nbsp; It is somewhat surrounded by River and Delta water bodies, and data should be considered with that in mind.",38.033386,-121.701247,-12,2016-07-01,2050-12-31,-3.6576,7.82,True,10.09843073276768,1.8651210402661516,-1.9776703220626004,4.026325297411083,30,29,-0.4374278167744985
+248,1.2945112133409982,0.7936007583823137,0.5281328147310261,0.9482697072832525,1.2546120071411133,248,Holt,Stockton,North Central Region Office,San Joaquin,7/1/2016,12/31/2050,True,True,-3,Grass,37º55'55N / 37.932072,-121º23'48W / -121.396661,"DATE: 7-14-2016<br />
+<br />
+STATION #:&nbsp; 248 <br />
+STATION NAME:&nbsp; Holt<br />
+<br />
+ETO ZONE:&nbsp; 12<br />
+PREVAILING WINDS:&nbsp; West <br />
+<br />
+LOCAL CHARACTER:&nbsp; Roberts Island is historically reclaimed agricultural land in the Delta. Holt is a community located less than 2 miles east of the CIMIS station, and about 5 miles east of Stockton. Named for the Holt brothers who eventually established a major tractor manufacturing company (Caterpillar).&nbsp;<br />
+&nbsp; <br />
+DESCRIPTION OF STATION SITE: This CIMIS Station is located in the center of the island in a flood irrigated pasture.&nbsp; The Station site is surrounded by thousands of acres of agriculture.&nbsp; <br />
+<br />
+NORTH: <br />
+630ft: Irrigated pasture<br />
+EAST: <br />
+1125ft: Irrigated pasture<br />
+SOUTH: <br />
+540ft: Irrigated pasture<br />
+WEST:<br />
+1095ft:&nbsp; Irrigated pasture<br />
+<br />
+COMMENTS: Station 248 is a nice CIMIS location with plenty of exposure and fetch.&nbsp;",37.932072,-121.396661,-3,2016-07-01,2050-12-31,-0.9144,0.35,True,18.68251119539792,5.563308732296584,-1.8471481601152524,2.228005404808895,26,40,-0.3462415060577456
+249,1.0624999999999738,0.6771250187791884,0.42270198731054087,0.635281790939032,1.3861995873861757,249,Ripon,Manteca,North Central Region Office,San Joaquin,7/1/2016,5/22/2026,False,True,20,Grass,37º45'20N / 37.755597,-121º15'58W / -121.266153,,37.755597,-121.266153,20,2016-07-01,2026-05-22,6.096,0.09,True,9.58334660553282,4.283637278848392,6.056820511959403,3.281700990107986,32,59,-0.42721820906094177
+250,0.9875789473684287,0.7956097003981104,0.3684512211873039,0.9487862191549166,1.3903450012207026,250,Williams,Williams,Northern Region Office,Colusa,8/9/2016,12/31/2050,True,True,69,Grass,39º12'38N / 39.210667,-122º10'8W / -122.168889,"DATE: 8-9-2016<br />
+<br />
+STATION #:&nbsp; 250 <br />
+STATION NAME:&nbsp; Williams<br />
+<br />
+ETO ZONE:&nbsp; 12<br />
+PREVAILING WINDS:&nbsp; South, SSW&nbsp;<br />
+<br />
+LOCAL CHARACTER:&nbsp; Agricultural area, west of Sutter Buttes within the Sacramento Valley on west side of Sacramento River.&nbsp;&nbsp;<br />
+<br />
+DESCRIPTION OF STATION SITE: &nbsp;Large (345 acre, plus), well managed flood irrigated pasture mostly surrounded by Rice.&nbsp; <br />
+<br />
+NORTH: <br />
+950ft: Irrigated pasture to irrigation ditch then more pasture<br />
+<br />
+EAST: <br />
+1700ft: Irrigated pasture to dirt road then rice fields<br />
+<br />
+SOUTH: <br />
+900ft: Irrigated pasture to irrigation ditch<br />
+<br />
+WEST:<br />
+200ft:&nbsp; Irrigated pasture to dirt road then more pasture<br />
+<br />
+COMMENTS: This station's irrigated pasture may actually be a larger area.&nbsp;",39.210667,-122.168889,69,2016-08-09,2050-12-31,21.0312,5.05,True,12.560036095991276,6.936682778063857,21.23759028305437,4.17669942623557,42,49,-0.038792728213512095
+262,1.040990099009883,0.7372726626468422,1.6042862924546708,1.312157356401175,1.130943011523969,262,Linden,Linden,North Central Region Office,San Joaquin,2/26/2020,12/31/2050,True,True,111,Grass,38º3'56N / 38.065692,-121º4'18W / -121.071747,,38.065692,-121.071747,111,2020-02-26,2050-12-31,33.8328,1.0,True,24.5201246681038,5.60432662290111,37.63383219216736,9.611193074782385,60,58,0.271167257391292
+265,1.6747432950191317,0.6499999284744264,0.4988206689213883,0.4677041916620165,1.395261056082589,265,Paso Robles,Paso Robles,Southern Region Office,San Luis Obispo,3/1/2022,12/31/2050,True,True,764,Grass,35º41'32N / 35.692266,-120º38'55W / -120.64855,"<p style=""margin: 0px; text-align: left;""><br />
+</p>DATE: 04-27-22<br />
+ <br />
+ <br />
+ STATION #:&nbsp; 265<br />
+ STATION NAME:&nbsp; Paso Robles<br />
+ <br />
+ <br />
+ ETO ZONE:&nbsp; 16<br />
+ PREVAILING WINDS:&nbsp; Northwest<br />
+ <br />
+ <br />
+ LOCAL CHARACTER:&nbsp; Located in Northern San Luis Obispo county along the central coast, the Paso region lies just east of the Salinas River and includes roughly 65 square miles of agriculture (predominantly vineyard).<br />
+ DESCRIPTION OF STATION SITE: The field where the station is located is irrigated pasture, and the surrounding fields are vineyard.&nbsp; &nbsp;<br />
+ <br />
+ <br />
+ NORTH:&nbsp;<br />
+ 1,000 feet of irrigated pasture.<br />
+ <br />
+ <br />
+ EAST:&nbsp;<br />
+ 950 feet irrigated pasture, dirt road, then vineyard.<br />
+ <br />
+ <br />
+ SOUTH:&nbsp;<br />
+ 290 feet irrigated pasture, dirt road, then vineyard.&nbsp;<br />
+ <br />
+ <br />
+ WEST:<br />
+ 334 feet irrigated pasture<br />
+ <br />
+ <br />
+ COMMENTS:&nbsp; Representing a microclimate that contains many agricultural operations, this ETo data will provide valuable information and insight to growers in the area.<br />",35.692266,-120.64855,764,2022-03-01,2050-12-31,232.86720000000005,5.17,True,22.829072247165247,3.084335453682216,233.0027857093578,17.5181077875367,87,32,-1.2070391033571153
+266,1.0200000000000102,0.6838811167183665,0.6926557499570909,0.5290220887510928,0.9291913972867953,266,Shandon,Shandon,Southern Region Office,San Luis Obispo,8/1/2022,12/31/2050,True,True,1105,Grass,35º38'38N / 35.643787,-120º24'12W / -120.403229,,35.643787,-120.403229,1105,2022-08-01,2050-12-31,336.80400000000003,12.04,True,22.829072247165247,16.04847132126005,359.1896205444938,42.1632342768656,225,34,-0.49097791124891743
