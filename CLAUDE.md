@@ -39,7 +39,7 @@ requiring assumptions about kernel set, bloom stage sensitivity or yield, stop a
 | Crop | Almonds |
 | Season | Bloom and early nut development, 1 February – 31 March |
 | Years | 2015–2025 (11 seasons) |
-| Geography | California almond acreage, stratified by region: Sacramento Valley (north), San Joaquin north (Stanislaus/Merced), San Joaquin south (Fresno/Kern) |
+| Geography | **All** California almond acreage, stratified into three latitude bands (**AMENDED 2026-09-22**, see §5.1a): Sacramento Valley, San Joaquin north, San Joaquin south. The county pairs named in the original spec were illustrations of the north/south split, not a definition, and taking them literally left 26.7% of state almond acreage unassigned for no reason. |
 | Orchard units | DWR/Land IQ Statewide Crop Mapping, almond class. Not CDL — see §5.1 |
 | Frost nights | Defined from CIMIS station observations, never from satellite. See §5.4 |
 | Damage thresholds | Published UC critical temperatures by growth stage, cited, used only as context for which nights are interesting |
@@ -100,6 +100,47 @@ Coverage exceptions found by that check are recorded in the rows themselves.
 - USDA CDL (`USDA/NASS/CDL`, almond class 75) as a comparison only, reported alongside. CDL
   misclassified badly in the strawberry study; do not use it as the unit definition.
 - Units: fields ≥ 5 acres, to avoid edge pixels dominating.
+
+### 5.1a Regions (AMENDED 2026-09-22)
+
+**Every county with almond acreage is assigned. Coverage is 100%, not 73%.**
+
+The strata are defined by two latitude boundaries, placed to fall *between* counties rather than
+through them, and chosen as the local minima of total almond acreage landing on the wrong side:
+
+| Boundary | Latitude | Separates |
+|---|---|---|
+| 1 | **38.25 N** | Sacramento Valley │ San Joaquin north |
+| 2 | **36.82 N** | San Joaquin north │ San Joaquin south |
+
+A county is assigned whole, by the **acreage-weighted median latitude of its own almond fields**.
+Assignment is at county level and never at field level, because **federal crop insurance is
+administered county by county**: a stratum that cannot be written as a county list cannot be
+mapped onto the program by the audience for this document. The latitude rule is how the list is
+*derived*; the list itself is what the study uses, and it is frozen in `notebooks/common.py` and
+re-checked against the rule at every run.
+
+**Counties that straddle their boundary are reported, not forced.** At these boundaries three do
+so by more than 5% of their own almond acreage: **Sacramento 15.1%** (722 of 4,780 acres),
+**Fresno 5.5%** (14,896 of 272,035) and **Madera 5.1%** (7,799 of 154,400). Total straddling
+acreage is 23,998 acres, **1.59% of the state**. Sacramento and San Joaquin counties interlock
+across the Delta and no latitude separates them cleanly; that is a property of the geography, not
+a defect of the rule, and it is stated rather than hidden.
+
+**Six counties with almond acreage sit outside the Central Valley** (Lake, Calaveras, Contra
+Costa, Alameda, San Luis Obispo, Riverside). They are assigned by the same rule rather than
+special-cased. Together they hold 6,409 acres, **0.42%** of the assigned total.
+
+**Sensitivity, carried into Step 4 and reported there.** Each boundary is moved by one county in
+each direction, giving four alternative stratifications; "one county" means the adjacent county by
+median latitude holding at least 1% of state almond acreage, so the test is not decided by a
+200-acre county. The four are: Solano to San Joaquin north; San Joaquin county to Sacramento
+Valley; Madera to San Joaquin south; Fresno to San Joaquin north. The per-unit region under each
+scheme is written in Step 1 so Step 4 can report the sensitivity without rebuilding the units.
+**If the Step 4 results do not move, say so plainly:** it would mean the stratification is not
+load-bearing — that regional grouping is a reporting convenience rather than a physical control
+— and that changes how Step 5 must be read, because a regional bias correction fitted on strata
+that do not matter is fitting noise.
 
 ### 5.2 Satellite thermal — the candidates
 
@@ -245,7 +286,10 @@ Each step ends at a **CHECKPOINT**: print the result, stop, wait for my review. 
 steps.
 
 **Step 1 — Units and stations.** Build the almond unit layer from DWR. Report acreage by region,
-count, size distribution. Build the CIMIS station list: which stations sit inside or within 10 km
+count, size distribution. Report **county membership of each stratum as a table**, with each
+county's almond acreage, its median latitude, and the share of its acreage falling on the wrong
+side of its boundary; and report the fraction of state almond acreage assigned, which should be
+100%. Build the CIMIS station list: which stations sit inside or within 10 km
 of almond acreage, their elevation, their years of record. Report how many units have a station
 within 5, 10, 20 km. Report the CDL comparison: what fraction of CDL almond area falls inside DWR
 almond fields, and vice versa. CHECKPOINT.
@@ -282,6 +326,11 @@ Treat that as a designed experiment. Regress Aqua's error against the station mi
 within-night physics that makes it interesting. If a later overpass reads systematically closer to
 the observed minimum, that is independent confirmation of whatever Step 7 finds from GOES, by a
 completely different mechanism. CHECKPOINT.
+**Stratification sensitivity (added 2026-09-22).** Repeat the headline comparison under the four
+alternative stratifications defined in §5.1a and report whether the ranking of products, and the
+size of any satellite advantage, changes. Report the answer either way. A result that does not
+move under a one-county shift of either boundary says the strata are a reporting convenience, not
+a physical control, and §5.4's per-region bias correction must then be read in that light.
 
 **Step 5 — Does the advantage come from terrain?** Regress per-station error against terrain
 variables: elevation, TPI, height above nearest drainage, distance to nearest CIMIS station, local
@@ -336,6 +385,29 @@ notebook cell. Every kill criterion addressed explicitly, fired or not.
 10. **Silent failure modes in public datasets**
 11. What this means for an index product — measurement implications only, no product proposal
 12. Data and reproducibility
+
+**§2 must carry the crop-map agreement result as a finding, not as a closed check.** Measured
+here for almonds and in the strawberry study for strawberries, using the same two products
+(DWR/Land IQ and USDA CDL) and the same two directions:
+
+| | almonds (2023) | strawberries (2023) |
+|---|---|---|
+| CDL crop area falling inside DWR fields of that crop | **69.5%** | **32.6%** |
+| DWR field area that CDL calls the same crop | **85.1%** | not computed |
+
+Both almond figures are statewide: the 24 almond counties hold 98.7% of the CDL almond area in
+California.
+
+**Two independent crop maps agree far better on a perennial than on a rotating annual.** That is
+intuitive — an orchard holds its signature for twenty years while a strawberry field is plastic,
+then canopy, then something else within one water year — but it is now measured across two studies
+on the same two products rather than asserted. It is useful to anyone choosing a unit layer for
+index work on a specialty crop.
+
+**The gap stays stated.** CDL calls 1,849,423 acres almonds in the 24 almond counties against
+1,508,863 from DWR, **+23%, a difference of 340,560 acres**. Neither map is ground truth.
+The reader must know the unit layer carries that uncertainty **before** any temperature result
+lands on it, so this belongs in §2 and not in §9.
 
 §9 must include, at minimum: the LST-versus-air-temperature confound and how it was handled;
 clear-sky sampling bias; the DWR survey year versus the study years; CIMIS station siting

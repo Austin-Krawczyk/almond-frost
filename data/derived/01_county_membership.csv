@@ -1,0 +1,25 @@
+county,stratum,acres,units,median_lat,straddle_acres,straddle_pct,central_valley
+Colusa,sac_valley,66585,1698,39.065,0,0.0,True
+Glenn,sac_valley,61765,1512,39.671,0,0.0,True
+Yolo,sac_valley,47446,1018,38.732,0,0.0,True
+Butte,sac_valley,32950,972,39.653,0,0.0,True
+Solano,sac_valley,26118,472,38.416,150,0.6,True
+Tehama,sac_valley,23100,701,39.952,0,0.0,True
+Sutter,sac_valley,21026,661,39.132,0,0.0,True
+Sacramento,sac_valley,4780,128,38.319,722,15.1,True
+Placer,sac_valley,4453,83,38.846,0,0.0,True
+Yuba,sac_valley,4062,118,39.066,0,0.0,True
+Lake,sac_valley,35,3,39.022,0,0.0,False
+Stanislaus,sj_north,193092,6890,37.602,0,0.0,True
+Merced,sj_north,159895,4526,37.322,0,0.0,True
+Madera,sj_north,154400,3840,36.976,7799,5.1,True
+San Joaquin,sj_north,109266,3359,37.824,431,0.4,True
+Contra Costa,sj_north,2669,47,37.924,0,0.0,False
+Alameda,sj_north,1534,23,37.784,0,0.0,False
+Calaveras,sj_north,235,9,38.101,0,0.0,False
+Fresno,sj_south,272035,6160,36.62,14896,5.5,True
+Kern,sj_south,199197,3809,35.54,0,0.0,True
+Tulare,sj_south,87260,2077,36.049,0,0.0,True
+Kings,sj_south,35420,883,36.308,0,0.0,True
+San Luis Obispo,sj_south,1930,112,35.626,0,0.0,False
+Riverside,sj_south,6,1,33.53,0,0.0,False

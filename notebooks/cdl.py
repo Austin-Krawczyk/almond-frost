@@ -88,6 +88,9 @@ def county_geometry(counties) -> ee.Geometry:
 def dwr_overlap(asset: str, region: str, year: int = C.CDL_YEAR) -> dict:
     """Rasterised area of DWR units in `region`, and how much of it CDL calls almonds.
 
+    The region is applied by filtering on COUNTY against the frozen county list, not on a
+    `study_region` attribute stored in the asset -- see the note in ee_assets.PROPS.
+
     Both numbers come from the same 30 m grid, so they are directly comparable; DWR `ACRES`
     (whole-polygon area) is reported alongside as the vector-side figure.
     """
@@ -95,7 +98,7 @@ def dwr_overlap(asset: str, region: str, year: int = C.CDL_YEAR) -> dict:
     px = ee.Image.pixelArea().rename("dwr_m2").addBands(
         cdl.eq(C.CDL_ALMOND).multiply(ee.Image.pixelArea()).rename("cdl_almond_m2"))
     fc = (ee.FeatureCollection(asset).filter(ee.Filter.eq("is_unit", 1))
-          .filter(ee.Filter.eq("study_region", region)))
+          .filter(ee.Filter.inList("COUNTY", sorted(C.REGION_COUNTIES[region]))))
     stats = px.reduceRegions(fc, ee.Reducer.sum(), 30)
     out = stats.reduceColumns(ee.Reducer.sum().repeat(2),
                               ["dwr_m2", "cdl_almond_m2"]).getInfo()["sum"]
@@ -109,4 +112,14 @@ def cdl_almond_in_counties(counties, year: int = C.CDL_YEAR) -> float:
     m2 = cdl.eq(C.CDL_ALMOND).multiply(ee.Image.pixelArea()).reduceRegion(
         reducer=ee.Reducer.sum(), geometry=county_geometry(counties), scale=30,
         maxPixels=1e13, bestEffort=False).getInfo()["cropland"]
+    return m2 / ACRE_M2
+
+
+def cdl_almond_statewide(year: int = C.CDL_YEAR) -> float:
+    """Total CDL almond acreage in California, for scale against the study-county total."""
+    ca = (ee.FeatureCollection("TIGER/2018/States")
+          .filter(ee.Filter.eq("NAME", "California")).geometry())
+    m2 = cdl_image(year).eq(C.CDL_ALMOND).multiply(ee.Image.pixelArea()).reduceRegion(
+        reducer=ee.Reducer.sum(), geometry=ca, scale=30, maxPixels=1e13,
+        bestEffort=False).getInfo()["cropland"]
     return m2 / ACRE_M2

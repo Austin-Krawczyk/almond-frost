@@ -1,10 +1,10 @@
 pool,km,units,unit_pct,acres,acre_pct
-all 276 stations,5,3310,11.5,133962,12.0
-all 276 stations,10,10676,37.1,428379,38.4
-all 276 stations,20,24879,86.5,977246,87.5
-nominally operating 2015-2025,5,2148,7.5,87092,7.8
-nominally operating 2015-2025,10,7804,27.1,307705,27.6
-nominally operating 2015-2025,20,20879,72.6,814495,73.0
-flagged active today,5,1229,4.3,46703,4.2
-flagged active today,10,5721,19.9,215320,19.3
-flagged active today,20,17215,59.9,666854,59.7
+all 276 stations,5,4526,11.6,174353,11.6
+all 276 stations,10,14426,36.9,565126,37.4
+all 276 stations,20,34388,87.9,1334602,88.4
+nominally operating 2015-2025,5,3125,8.0,120002,8.0
+nominally operating 2015-2025,10,11084,28.3,425633,28.2
+nominally operating 2015-2025,20,29204,74.7,1123926,74.5
+flagged active today,5,1709,4.4,64347,4.3
+flagged active today,10,7589,19.4,280847,18.6
+flagged active today,20,23230,59.4,883871,58.6

@@ -146,3 +146,59 @@ Every deviation from `CLAUDE.md`, dated, with the reason. One line each.
   changes no planimetric area.
 - 2026-09-22 — Project virtualenv created from `requirements.txt`, reading through `fiona` for the
   same Windows Application Control reason recorded for the strawberry repository.
+- 2026-09-22 — **Strata redefined as latitude bands; every almond county is now assigned.** The
+  county pairs in the original §4 ("Stanislaus/Merced", "Fresno/Kern") were illustrations of a
+  north/south split, not a definition, and reading them literally left **26.7% of state almond
+  acreage unassigned** — Madera 154,400 ac, San Joaquin 109,266, Tulare 87,260, Kings 35,420 and
+  others — for no reason. Replaced by two boundaries, **38.25 N** (Sacramento Valley | San Joaquin
+  north) and **36.82 N** (San Joaquin north | San Joaquin south), placed to fall *between*
+  counties and chosen as the local minima of almond acreage landing on the wrong side. Coverage is
+  now **100.00%: 24 counties, 39,102 units, 1,509,261 acres** — Sacramento Valley 11 counties /
+  292,322 ac, San Joaquin north 7 / 621,091, San Joaquin south 6 / 595,848.
+- 2026-09-22 — **Counties are assigned whole, and straddling is reported rather than forced.** Each
+  county goes to the band containing the acreage-weighted median latitude of its own almond fields.
+  Total straddling acreage is 23,998 ac, **1.59% of the state**; three counties straddle by more
+  than 5% of their own acreage — **Sacramento 15.1%** (722 of 4,780 ac), **Fresno 5.5%** (14,896 of
+  272,035) and **Madera 5.1%** (7,799 of 154,400). Sacramento and San Joaquin counties interlock
+  across the Delta and **no latitude separates them cleanly**; that is the geography, not a defect
+  of the rule, and it is stated in §5.1a rather than hidden. Six almond counties lie outside the
+  Central Valley (Lake, Calaveras, Contra Costa, Alameda, San Luis Obispo, Riverside) and are
+  assigned by the same rule rather than special-cased; together 6,409 ac, 0.42% of the total.
+- 2026-09-22 — **Assignment stays at county level, never at field level.** Federal crop insurance is
+  administered county by county, so a stratum that cannot be written as a county list cannot be
+  mapped onto the program by the audience for this document. The latitude rule *derives* the list;
+  the frozen list in `notebooks/common.py` is what the study uses, and Step 1 re-derives it from the
+  rule on every run and raises if the two have drifted apart. **Sacramento Valley therefore stays
+  county-defined**, with DWR's published `HYDRO_RGN` = "Sacramento River" kept as the stated
+  sensitivity: 7,279 units / 288,723 ac against 7,366 / 292,322, a difference of 87 units and 3,599 ac, **1.2%
+  of the region**.
+- 2026-09-22 — **Stratification sensitivity added to §6 Step 4.** Each boundary is moved by one
+  county in each direction, giving four alternative schemes — Solano to San Joaquin north; San
+  Joaquin county to Sacramento Valley; Madera to San Joaquin south; Fresno to San Joaquin north.
+  "One county" means the adjacent county by median latitude holding at least 1% of state almond
+  acreage, so the test is not decided by a 200-acre county. The per-unit region under each scheme
+  is written in Step 1 (`region_b1_up` and the rest) so Step 4 reports the sensitivity without
+  rebuilding the units. **If the results do not move, that is to be stated plainly:** it would mean
+  the stratification is a reporting convenience rather than a physical control, which changes how
+  Step 5 must be read, since a per-region bias correction fitted on strata that do not matter is
+  fitting noise.
+- 2026-09-22 — **The Earth Engine asset was rebuilt carrying source attributes only.** The first
+  upload stored `study_region`, which the redefinition above made stale within a day. An asset
+  carrying a stale derived stratum is precisely the believable-but-wrong value §8 item 10 is about,
+  so `study_region` was dropped: the asset holds `UniqueID`, `ACRES`, `COUNTY`, `HYDRO_RGN`,
+  `is_unit` and `YR_PLANTED`, and region is applied at use time by filtering on `COUNTY` against
+  the frozen county list. This also means a change of stratification no longer requires a re-upload.
+- 2026-09-22 — **Step 1 re-run on the statewide unit set; the CDL comparison numbers moved and are
+  restated rather than left.** The 14-county figures quoted before the redefinition (1,370,038 CDL
+  acres against 1,116,227 DWR, a 254,000-acre gap) covered 73% of the crop and are superseded.
+  Statewide, over all 24 almond counties: **CDL calls 1,849,423 acres almonds against 1,508,863
+  from DWR, +23%, a gap of 340,560 acres.** Direction 1 (DWR unit area CDL agrees is almond)
+  **85.1%**; direction 2 (CDL almond area inside a DWR almond unit) **69.5%**. Both are within
+  half a point of the 14-county values, so the agreement result is a property of the two products
+  and not of the county subset. Those counties hold 98.7% of CDL's statewide almond area, so this
+  is effectively the statewide comparison.
+- 2026-09-22 — Widening the footprint also widened the station set: **82 of 276 CIMIS stations now
+  sit within 10 km of almond acreage** (was 60) and **55 nominally operated in 2015–2025** (was
+  38). Unit-to-nearest-station distance is essentially unchanged — median 14.4 km against 14.7 km
+  on the operating set — so the extra acreage is no better served than the original strata, and
+  the K3 test still has real variation to work with.

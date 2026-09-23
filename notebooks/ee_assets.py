@@ -17,7 +17,11 @@ import common as C
 FOLDER = f"projects/{C.EE_PROJECT}/assets/almond"
 ASSET = f"{FOLDER}/dwr2023_almond_fields"
 CHUNK = 4000
-PROPS = ["UniqueID", "ACRES", "COUNTY", "HYDRO_RGN", "study_region", "is_unit", "YR_PLANTED"]
+# Source attributes only. `study_region` is deliberately NOT uploaded: it is derived from the
+# frozen county list in common.py, which has already changed once, and an asset carrying a stale
+# derived stratum is exactly the kind of believable-but-wrong value §8 item 10 is about. Region
+# is applied at use time by filtering on COUNTY.
+PROPS = ["UniqueID", "ACRES", "COUNTY", "HYDRO_RGN", "is_unit", "YR_PLANTED"]
 
 
 def asset_exists(asset_id: str) -> bool:

@@ -30,6 +30,49 @@ def load_almonds(min_acres: float = C.MIN_ACRES) -> gpd.GeoDataFrame:
                       where=f"MAIN_CROP = '{C.ALMOND_CODE}'", engine="fiona")
     # named study_region, not region: DWR already uses REGION for its own office codes
     # (NRO/NCRO/SCRO), and GeoPackage column names are case-insensitive.
+    ll = g.to_crs("EPSG:3310").geometry.centroid.to_crs("EPSG:4326")
+    g["lat"] = ll.y
+    g["lon"] = ll.x
     g["study_region"] = [C.assign_region(c) for c in g["COUNTY"]]
+    # Per-unit region under each alternative stratification, so Step 4 can report the §5.1a
+    # sensitivity without rebuilding the units.
+    for scheme in C.REGION_SCHEMES:
+        if scheme != "base":
+            g[f"region_{scheme}"] = [C.assign_region(c, scheme) for c in g["COUNTY"]]
     g["is_unit"] = (g["ACRES"] >= min_acres).astype(int)
     return g
+
+
+def check_region_rule(g) -> "pd.DataFrame":
+    """Re-derive the county->stratum map from the latitude rule and check the frozen list.
+
+    Returns the county membership table (CLAUDE.md §6 Step 1) and raises if the frozen list in
+    common.py disagrees with the rule, so the list can never drift away from how it was derived.
+    """
+    import numpy as np
+    import pandas as pd
+
+    B1, B2 = C.BOUNDARY_SAC_SJN, C.BOUNDARY_SJN_SJS
+    u = g[g.is_unit == 1]
+    rows = []
+    for county, s_ in u.groupby("COUNTY"):
+        w, lat = s_.ACRES.values, s_.lat.values
+        order = np.argsort(lat)
+        med = float(np.interp(0.5, np.cumsum(w[order]) / w.sum(), lat[order]))
+        band = "sac_valley" if med >= B1 else ("sj_north" if med >= B2 else "sj_south")
+        wrong = (w[lat < B1].sum() if band == "sac_valley" else
+                 w[(lat < B2) | (lat >= B1)].sum() if band == "sj_north" else
+                 w[lat >= B2].sum())
+        rows.append({"county": county, "stratum": band, "acres": round(w.sum()),
+                     "units": len(s_), "median_lat": round(med, 3),
+                     "straddle_acres": round(wrong),
+                     "straddle_pct": round(100 * wrong / w.sum(), 1),
+                     "central_valley": county not in C.NON_VALLEY})
+    t = pd.DataFrame(rows).sort_values(["stratum", "acres"], ascending=[True, False])
+
+    derived = dict(zip(t.county, t.stratum))
+    if derived != C.COUNTY_REGION:
+        diff = {k: (v, C.COUNTY_REGION.get(k)) for k, v in derived.items()
+                if C.COUNTY_REGION.get(k) != v}
+        raise RuntimeError(f"frozen county list disagrees with the latitude rule: {diff}")
+    return t
