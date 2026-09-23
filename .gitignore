@@ -1,0 +1,22 @@
+# Secrets
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.ipynb_checkpoints/
+
+# Large raw downloads: kept locally, provenance in data/raw/*/SOURCE.md
+data/raw/dwr_crop_mapping/*
+!data/raw/dwr_crop_mapping/SOURCE.md
+data/raw/cimis/*.json
+!data/raw/cimis/SOURCE.md
+
+# Exported rasters
+data/derived/*.tif
+data/derived/*.tiff
+
+# OS
+Thumbs.db
+.DS_Store
