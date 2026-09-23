@@ -37,10 +37,14 @@ Every deviation from `CLAUDE.md`, dated, with the reason. One line each.
 - 2026-09-22 — **§5.2 GOES reduced to GOES-18 only (2023–2025), option (a).** The spec named
   `NOAA/GOES/18/MCMIPC`, which covers 3 of the 11 seasons; option (b) would have added GOES-17 for
   2019–2022, conditional on verifying that its infrared bands were usable on February nights.
-  Tested on real scenes over a Central Valley box using the product's own `DQF_C13` flag, six
-  sample days per February, by hour: at **12Z and 14Z (04:00 and 06:00 PST — the pre-dawn
-  minimum), a consistent third of sampled nights are 0% good in 2020, 2021 and 2022 alike**, while
-  16Z (08:00) is 100% good and GOES-18 is 100% good at every sampled hour in 2023–2025. GOES-17 is
+  Tested on a **full February census** over a Central Valley box using the product's own
+  `DQF_C13` flag — every night, 12Z and 14Z (04:00 and 06:00 PST), 2019–2022, no slots missing.
+  Wholly unusable scenes (under 5% of valley pixels good): **0 of 28 at each slot in 2019**, then
+  11/28 and 12/28 in 2020, 8/28 and 11/28 in 2021, 8/28 and 13/28 in 2022 — **63 of 168 across
+  2020–2022, or 37.5%**, against **0 of 165 for GOES-18 in 2023–2025**. An earlier six-day-per-year
+  sample had suggested "about a third"; the census confirms the rate and is what the exhibit
+  quotes. The clean 2019 control, same code and box and flag, is what distinguishes an instrument
+  fault from a screening artefact. GOES-17 is
   therefore substantially degraded in precisely our window and our hours — consistent with its loop
   heat pipe under-performing near satellite midnight — and is not used. GOES-16 is not used either:
   a steep eastern view angle over California adds a path-length problem on top of the atmospheric
@@ -86,3 +90,17 @@ Every deviation from `CLAUDE.md`, dated, with the reason. One line each.
   1,524,133 acres** — the right order for California almonds, against D14 pistachios 602,106 and
   D13 walnuts 419,422. Almond units are therefore selected on `MAIN_CROP == 'D12'`, pending the
   documentation and CDL cross-checks in Step 1.
+
+- 2026-09-22 — GOES-17 sample widened from six days per February to every February night at both
+  pre-dawn slots, 2019–2022, before the figure goes in the exhibit: 224 scenes, none missing. The
+  degradation holds and is now quoted as a rate. Raw per-night values saved to
+  `data/derived/01x_goes17_dqf_february.json`.
+- 2026-09-22 — **§8 gains a section, 'Silent failure modes in public datasets'**, carrying all
+  three instances this programme has hit (CPC 0.1 mm/day scaling; VIIRS missing scale factor; DWR
+  moving the crop field between survey years), each with the wrong value it would have produced,
+  why that value looked plausible, and what caught it. The shared property — the error yields a
+  believable number rather than an exception — is the generalisable point. Approved by user.
+- 2026-09-22 — **§9 gains a rule:** no selector, field name or scale factor carried over from a
+  previous project may be used without re-verification against the current file's own schema.
+  Prompted by the DWR `CROPTYP1` near-miss, which would have returned 8,411 almond acres instead
+  of about 1.5 million while looking entirely believable. Approved by user.

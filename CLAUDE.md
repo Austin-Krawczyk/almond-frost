@@ -142,10 +142,23 @@ primary. Aqua remains a full candidate, not a footnote.
 
 1. *Coverage.* GOES-18 ABI over California begins in 2023 (3 of 11 seasons). GOES-17 covers
    2019–2022, but its loop heat pipe under-performed and its infrared detectors warmed near
-   satellite midnight. Tested on real February scenes over the Central Valley: at 12Z and 14Z
-   (04:00 and 06:00 PST — the pre-dawn minimum), **a consistent third of sampled nights are
-   0% good by the product's own `DQF_C13` flag, in 2020, 2021 and 2022 alike**, while GOES-18 is
-   100% good at the same hours in 2023–2025. GOES-17 is therefore not used. GOES-16 is not used
+   satellite midnight. Tested on **every February night** over a Central Valley box at 12Z and
+   14Z (04:00 and 06:00 PST — the pre-dawn minimum), using the product's own `DQF_C13` flag,
+   with no slots missing:
+
+   | GOES-17, February | 04:00 PST | 06:00 PST |
+   |---|---|---|
+   | **2019 (control)** | **0 of 28 unusable** | **0 of 28 unusable** |
+   | 2020 | 11 of 28 (39%) | 12 of 28 (43%) |
+   | 2021 | 8 of 28 (29%) | 11 of 28 (39%) |
+   | 2022 | 8 of 28 (29%) | 13 of 28 (46%) |
+
+   "Unusable" means the scene is essentially wholly flagged (under 5% of valley pixels good).
+   Across 2020–2022, **63 of 168 pre-dawn scenes are unusable (37.5%)**, against **0 of 56 in
+   2019** and **0 of 165 for GOES-18 in 2023–2025**. The clean 2019 control is what separates an
+   instrument fault from a screening artefact: the same code, the same box, the same hours, and
+   the same flag give a clean year before the degradation and a degraded one after. GOES-17 is
+   therefore not used. GOES-16 is not used
    either: its eastern view angle over California adds a path-length problem on top of the
    atmospheric one. **State in the exhibit that ABI continuity for night thermal work in
    California effectively begins in 2023.**
@@ -320,8 +333,9 @@ notebook cell. Every kill criterion addressed explicitly, fired or not.
 7. Spatial structure across orchards
 8. Timing: what a once-a-night snapshot misses
 9. Limitations
-10. What this means for an index product — measurement implications only, no product proposal
-11. Data and reproducibility
+10. **Silent failure modes in public datasets**
+11. What this means for an index product — measurement implications only, no product proposal
+12. Data and reproducibility
 
 §9 must include, at minimum: the LST-versus-air-temperature confound and how it was handled;
 clear-sky sampling bias; the DWR survey year versus the study years; CIMIS station siting
@@ -334,6 +348,37 @@ surprises found along the way.
   and absent from the Step 4 accuracy comparison.
 - **ABI continuity for night thermal work in California effectively begins in 2023**, because
   GOES-17's infrared bands are unusable on about a third of February pre-dawn scenes.
+
+### §10 — Silent failure modes in public datasets
+
+A short section in its own right, not a footnote. It carries every instance this programme has
+hit, and for each one records **what the wrong value would have been, why it looked plausible,
+and what caught it**:
+
+1. **CPC precipitation stored in 0.1 mm/day** (strawberry study). Read at face value it gave
+   792 mm for a six-day event and 5,053 mm for calendar 2021 at Pajaro, against 592 mm from PRISM
+   for the same point and year. Plausible because a wet winter in coastal California *should*
+   produce large numbers, and because the conclusion it supported — that a coarse grid triggers
+   everywhere — was one we half expected. Caught by an independent plausibility check against
+   another product and against physical reality: no part of coastal California receives five
+   metres of rain.
+2. **VIIRS `LST_1KM` carries no scale factor where MODIS `LST_Night_1km` carries 0.02.** Applying
+   the MODIS recipe to VIIRS gives about **−268 °C**. Plausible only until you look — but the
+   failure mode is the reverse case, applying the *VIIRS* recipe to MODIS, which turns a scaled
+   integer into a number near 14,000 K, or worse, a correctly scaled MODIS value into a silently
+   wrong one if the offset alone is dropped. Caught by reading each band's catalogue entry before
+   use and checking raw values against the expected range.
+3. **DWR changed which field carries the crop between survey years.** The strawberry study read
+   `CROPTYP1`; in the 2023 final geodatabase that field is `****` for 419,240 of 446,914 fields,
+   and the crop lives in `MAIN_CROP`. Reusing the earlier selector unchanged returns **302 almond
+   fields and 8,411 acres** instead of roughly 1.5 million — and 8,411 acres is a perfectly
+   believable number for a small crop, which is exactly why it would have survived review.
+   Caught by tabulating the field's own distribution before trusting it.
+
+**All three share one property, and it is the part worth generalising: the error produced a
+number in a believable range rather than an exception.** None of them raised an error, none
+produced an obviously absurd map, and each supported a conclusion that sounded reasonable. Unit
+and schema checks are therefore part of the method, not housekeeping.
 
 **The documentation-risk theme.** The strawberry study's CPC units error — a product stored in
 0.1 mm/day that read plausibly wrong — belongs here as a cited precedent for why unit and
@@ -348,6 +393,11 @@ the product's own documentation and its own view-time band before use.
 
 - Stop at every checkpoint. Print results, wait.
 - Never substitute a dataset. If an ID is dead, stop and ask.
+- **Never reuse a selector, field name or scale factor carried over from a previous project
+  without re-verifying it against the current file's own schema.** Field names are not stable
+  across survey years, and scale factors are not stable across products from the same provider.
+  Tabulate the field's own distribution, or read the band's own catalogue entry, before trusting
+  anything inherited. See §8 item 10.
 - Plausibility-check every extracted quantity against its documentation before using it.
   Temperature products come in K, °C and scaled integers. A number that looks plausible can still
   be wrong by a scale factor. Check the band description, not your memory of it.
