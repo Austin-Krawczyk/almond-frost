@@ -13,6 +13,9 @@ data/raw/dwr_crop_mapping/*
 data/raw/cimis/*.json
 !data/raw/cimis/SOURCE.md
 
+# GHCN-Daily station list (11 MB, re-downloadable; provenance in data/raw/SOURCE_ghcnd.md)
+data/raw/ghcnd-stations.txt
+
 # Regenerable derived caches: the GeoPackage is rebuilt from data/raw in seconds, and
 # the rasters are Earth Engine downloads. The small CSV tables ARE committed.
 data/derived/*.tif
