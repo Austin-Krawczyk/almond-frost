@@ -308,3 +308,46 @@ Every deviation from `CLAUDE.md`, dated, with the reason. One line each.
   radius**: 63 stations against 55 at 10 km, farthest selected 19.7 km, and the median
   unit-to-nearest-station distance barely moves (14.4 km against 14.7 km on the operating set), so
   K3's spread survives the wider radius.
+- 2026-09-23 — **Step 3 complete. K4 does not fire for the polar orbiters; the bias runs in our
+  favour**, as the physics predicts. Usable retrievals on frost nights against ordinary nights:
+  **VIIRS 87.0% vs 56.8% (1.53×), Aqua 56.3% vs 34.5% (1.63×), Terra 56.1% vs 31.1% (1.80×),
+  at least one polar orbiter 92.0% vs 62.7%.** The advantage holds or grows at colder thresholds
+  (any-polar 93.8% at −1.1 °C, 93.3% at −2.2 °C) and in every individual season. Sample carried
+  into Step 4: at 0 °C, VIIRS 2,532, Aqua 1,638, Terra 1,633, any 2,676; the smallest cell
+  anywhere is Terra at −2.2 °C with 361, still above the K1 minimum of 200. **The study survives
+  the step most likely to kill it.**
+- 2026-09-23 — **K4 does fire for ECOSTRESS, orbitally rather than through cloud, and the deficit
+  was decomposed rather than reported as a rate.** ECOSTRESS is usable on 0.5% of frost nights
+  against 6.0% of ordinary ones (0.09×). A night scene existed somewhere on 44.5% of frost nights
+  against 48.4% of ordinary ones — essentially equal — so the deficit is not about acquisitions.
+  It is entirely in whether the swath covered the station: **0.52% against 6.27%, a factor of 12**.
+  Given the station *was* in swath, the QC screen passed **100% of frost nights against 95.5% of
+  ordinary ones**, so the screen behaves as physics predicts and is not the cause. **Only 10 frost
+  station-nights in seven seasons put a station inside an ECOSTRESS night swath.** That is a
+  sampling property of the ISS orbit, not a sensor failure; ECOSTRESS remains a case-study sensor
+  and cannot carry Step 4 or the station side of Step 6.
+- 2026-09-23 — **Three extraction traps hit in Step 3, each producing a believable wrong answer
+  rather than an error.** (1) **MODIS masks its `QC_Night` band wherever the value is 0** — that
+  is, wherever quality is best. Reading a masked QC as unusable would have discarded two-thirds of
+  valid retrievals, the best ones. Verified over a test season: 705 station-nights had LST with QC
+  masked, 716 had QC with LST absent, 343 had both, **none had both missing**, and `unmask(0)`
+  returned 0 for all 705. VIIRS never masks its `QC`. (2) **`ee.Reducer.first()` names its output
+  `first` on a single-band image** but after the band names on a multi-band one; the first
+  ECOSTRESS extraction read back the band name, got `None` for every row, and reported **zero
+  usable ECOSTRESS observations in every season** — entirely plausible for a sparse ISS sensor and
+  very nearly accepted. Caught by checking one scene at one station by hand, where `reduceRegion`
+  returned a value `reduceRegions` did not. (3) **GOES `CMI_C13` is a scaled integer with a
+  per-image scale and offset** while the catalogue declares its units as K with no scale factor;
+  raw values of 1,980–3,218 are obviously not kelvin, but **a guessed ×0.1 gives 198–322 K, a
+  believable range that is silently wrong**. The image's own `CMI_C13_scale` 0.06145332 and
+  `CMI_C13_offset` 89.62 give 211.3–287.4 K. All three belong in §8 item 10.
+- 2026-09-23 — **GOES-18 availability is not comparable with the polar orbiters and §5 must say
+  so.** `DQF_C13` is an instrument quality flag, not a cloud mask: a geostationary sensor returns a
+  good radiance every night, but on a cloudy night that radiance is the cloud top rather than the
+  ground. Its 100% availability figure is near-certain by construction and says nothing about
+  whether the surface was visible. It is excluded from Figure 3 for that reason.
+- 2026-09-23 — Per the new §9 filter rule, Step 3 reports what each QC screen removed. On frost
+  nights the screen discards the "produced but other quality" retrievals — VIIRS 113 of 2,645,
+  Aqua 801 of 2,439, Terra 778 of 2,411 — and the removed nights' median tmin (−0.7, −1.3,
+  −1.2 °C) sits close to the kept nights' (−1.1, −1.0, −1.1 °C). **The screen is not selecting on
+  cold**, unlike the CIMIS flags in Step 2 where it would have been. Reported either way.

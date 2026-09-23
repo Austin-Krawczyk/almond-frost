@@ -1,0 +1,4 @@
+product,produced,kept,removed,kept_median_tmin,removed_median_tmin
+VIIRS VNP21A1N,2645,2532,113,-1.1,-0.7
+MODIS Aqua,2439,1638,801,-1.0,-1.3
+MODIS Terra,2411,1633,778,-1.1,-1.2
