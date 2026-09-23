@@ -13,9 +13,12 @@ data/raw/dwr_crop_mapping/*
 data/raw/cimis/*.json
 !data/raw/cimis/SOURCE.md
 
-# Exported rasters
+# Regenerable derived caches: the GeoPackage is rebuilt from data/raw in seconds, and
+# the rasters are Earth Engine downloads. The small CSV tables ARE committed.
 data/derived/*.tif
 data/derived/*.tiff
+data/derived/*.gpkg
+data/derived/_tmp_*
 
 # OS
 Thumbs.db

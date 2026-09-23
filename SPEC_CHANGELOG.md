@@ -119,3 +119,30 @@ Every deviation from `CLAUDE.md`, dated, with the reason. One line each.
   every checkpoint, not only syntax checks — the same shape appears in cloud screens that
   silently drop nights and joins that silently drop rows — so **every checkpoint report carries
   its denominator.** Approved by user.
+- 2026-09-22 — **D12 confirmed against DWR's published legend, closing the provisional finding.**
+  *2022 DWR Standard Land Use Legend (Remote Sensing Version)*, linked from the CNRA dataset page
+  recorded in `data/raw/dwr_crop_mapping/SOURCE.md`, sha256 `8fdc5aea368161cd96df33e7773de7d
+  8936c8317a79391e8b1b7eedd1c01ec4e`: class **D — Deciduous Fruits and Nuts**, subclass **12 —
+  Almonds**. The same page gives **13 — Walnuts** and **14 — Pistachios**, which the file's own
+  acreage ordering matches (D12 1,524,133 ac, D14 602,106 ac, D13 419,422 ac). The magnitude is
+  no longer doing the work: the legend is.
+- 2026-09-22 — **Sacramento Valley defined by county, not by hydrologic region.** CLAUDE.md §4
+  gives San Joaquin north and south as county pairs but names "Sacramento Valley (north)" without
+  counties. It is defined as the ten Sacramento Valley counties carrying almond acreage (Butte,
+  Colusa, Glenn, Placer, Sacramento, Solano, Sutter, Tehama, Yolo, Yuba), so that all three strata
+  are defined the same way and the CDL comparison footprint matches the strata. DWR's own
+  published boundary (`HYDRO_RGN` = "Sacramento River") moves 84 units and 3,564 acres, 1.2% of
+  the region; it is reported as a sensitivity in Step 1 rather than used as the definition.
+- 2026-09-22 — **CIMIS `Elevation` verified as feet, not assumed.** The API response states no
+  unit. Compared against SRTM GL1 at each station's own coordinates, 258 of 276 stations: median
+  ratio to SRTM-in-feet 0.999, median absolute difference 7 ft; ratio to SRTM-in-metres 3.278.
+  `elev_m` is derived from it. The notebook asserts the ratio rather than trusting a comment.
+- 2026-09-22 — **Earth Engine asset created:**
+  `projects/cropczyk/assets/almond/dwr2023_almond_fields`, all 45,404 D12 fields with
+  `study_region`, `is_unit`, `ACRES`, `COUNTY`, `HYDRO_RGN` and `YR_PLANTED`. Uploaded in twelve
+  chunks because an inline FeatureCollection of the whole layer exceeds the request size limit,
+  then merged server-side; the count is asserted against the DWR read. DWR geometries carry a Z
+  coordinate that Earth Engine rejects as invalid GeoJSON, so they are flattened to 2D, which
+  changes no planimetric area.
+- 2026-09-22 — Project virtualenv created from `requirements.txt`, reading through `fiona` for the
+  same Windows Application Control reason recorded for the strawberry repository.

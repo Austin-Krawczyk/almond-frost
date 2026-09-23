@@ -1,0 +1,5 @@
+region,units,acres,mean_ac,median_ac,p10_ac,p90_ac,max_ac
+Sacramento Valley,7363,292286,39.7,30.5,8.9,77.6,446
+San Joaquin north (Stanislaus/Merced),11416,352987,30.9,19.0,7.3,70.6,554
+San Joaquin south (Fresno/Kern),9969,471233,47.3,37.5,12.8,80.4,355
+Almond acreage outside the three strata,10354,392755,37.9,32.0,9.3,76.2,425
