@@ -228,3 +228,36 @@ Every deviation from `CLAUDE.md`, dated, with the reason. One line each.
   has grown to 39,102 units statewide. The asset-count question is closed there: 45,404 features
   = 39,102 units plus 6,302 fields below the 5-acre cut carried with `is_unit = 0`, printed and
   asserted in Step 1.
+- 2026-09-22 — **Step 2 scope: daily only, hourly deferred.** §5.4 asks for hourly and daily air
+  temperature. A frost night is defined from the daily minimum, and hourly is needed only once the
+  frost nights are known — at satellite overpass time in Step 4 and across the night in Step 7 —
+  so Step 2 pulls `day-air-tmp-min` for the whole window and hourly is pulled for the identified
+  nights instead. Pulling hourly for every night 2015–2025 would be roughly 1.2 million records,
+  mostly warm nights nobody will look at. 63 stations within 20 km of almond acreage, 33 requests,
+  31,746 station-nights returned of a theoretical 41,076 (77.3%; the gap is stations not yet
+  connected or already disconnected within the window).
+- 2026-09-22 — **CIMIS QC flags: a trap that would have removed the study's own subject.** Flag
+  meanings were taken from DWR's published *Current Flags* document, not assumed. It splits flags
+  into **severe** (`I` no meaning, `M` missing, `S` sensor out of service or out of threshold) and
+  **informative**, which includes `R` "data is far out of historical limits" and `Y` "data is
+  moderately out of historical limits". **`Y` and `R` are historical-limit tests, so they fire
+  precisely because a night was extreme.** Unflagged station-nights are at or below 0 °C 7.7% of
+  the time; `Y`-flagged ones 44.2% and `R`-flagged 54.3%. Dropping all flagged data — the obvious
+  conservative choice — would have removed **20% of frost nights at 0 °C and 46% at −2.2 °C**.
+  Adopted rule: drop severe flags only (they carry no value at all; all 387 of them are null), keep
+  `Y` and `R` with a `flagged` column, and report the flagged share alongside every frost-night
+  count. This belongs in the exhibit's §9 QC-flag requirement.
+- 2026-09-22 — **K1 PASSES at all three thresholds**, and not marginally: 2,910 usable frost
+  station-nights at 0 °C, 1,472 at −1.1 °C and **687 at −2.2 °C — 3.4× the 200 minimum**, spread
+  over 54 stations and 10 seasons. Sample size is not the constraint on this study. The binding
+  number will be how many of those nights a satellite actually saw, which Step 3 tests.
+- 2026-09-22 — Step 2 results: frost nights are **overwhelmingly a February phenomenon** (2,299 of
+  2,910 at 0 °C, a 15.4% nightly rate in February against 3.7% in March), and the interannual
+  spread is a **factor of 14** — 571 frost station-nights in 2018 against 40 in 2024 — on an
+  observing network stable at 2,553–3,220 station-nights per season, so the spread is weather and
+  not a changing denominator. Eight multi-night widespread events were identified (≥75% of
+  observing stations at or below 0 °C); the largest is **20–24 February 2018**, five consecutive
+  nights peaking at 49 of 50 stations and −8.0 °C, followed by **24–26 February 2022** and
+  **6–7 February 2019**. Station extremes are concentrated — the 12 coldest station-nights come
+  from 5 stations — so per-station minima are reported alongside the event view, since a single
+  station's minimum is a siting statement as much as a climate one.
