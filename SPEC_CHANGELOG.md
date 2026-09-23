@@ -104,3 +104,18 @@ Every deviation from `CLAUDE.md`, dated, with the reason. One line each.
   previous project may be used without re-verification against the current file's own schema.
   Prompted by the DWR `CROPTYP1` near-miss, which would have returned 8,411 almond acres instead
   of about 1.5 million while looking entirely believable. Approved by user.
+- 2026-09-22 — **§8 item 10 gains a fourth category: a check that returns a believable pass.**
+  The first three instances are data returning a believable wrong value, which verification
+  catches; the fourth is verification itself returning a believable pass, which defeats it. It
+  occurred in the strawberry repository's environment patch, not in the almond analysis, and
+  touched no result: a syntax check written as `try: ast.parse(...) except SyntaxError: continue`
+  reported zero errors while three lines were semantically wrong (the engine argument landed
+  inside a chained `.to_crs()`) and later seven were unparseable (literal backslashes in the
+  notebook JSON). Caught by re-running with failures reported rather than skipped, and by
+  printing the lines back as Python. Approved by user.
+- 2026-09-22 — **§9 gains the matching rule:** a validation that can pass by skipping is not a
+  validation. Checks must report failures explicitly and state what they examined; a harness that
+  catches an exception and continues must log the catch and fail loudly at the end. Applies to
+  every checkpoint, not only syntax checks — the same shape appears in cloud screens that
+  silently drop nights and joins that silently drop rows — so **every checkpoint report carries
+  its denominator.** Approved by user.

@@ -380,6 +380,40 @@ number in a believable range rather than an exception.** None of them raised an 
 produced an obviously absurd map, and each supported a conclusion that sounded reasonable. Unit
 and schema checks are therefore part of the method, not housekeeping.
 
+#### A fourth category: a check that returns a believable pass
+
+The three above are **data** returning a believable wrong value, and verification catches them.
+The fourth is **verification itself** returning a believable pass, and it defeats verification.
+
+It happened in this programme, and the scope should be stated honestly: **it was in the strawberry
+repository's environment patch, not in the almond analysis, and it did not touch any result.**
+While routing that repository's file reads through fiona, an automated edit inserted
+`engine="fiona"` before the last parenthesis on each line, which on a chained call like
+`gpd.read_file(...).to_crs(C.GRID_CRS)` placed the argument inside `to_crs` instead. A follow-up
+correction then wrote literal backslashes into the notebook JSON, leaving `engine=\"fiona\"` in
+the Python source — seven lines that could not parse at all.
+
+Both passed the check that was supposed to catch them. The check compiled every code cell inside
+
+```python
+try:
+    ast.parse(line)
+except SyntaxError:
+    continue        # <- silently swallows exactly what the check exists to find
+```
+
+so it reported zero errors while three lines were semantically wrong and later seven were
+unparseable. **The check could only ever report success**: every failure it was built to detect
+was routed to `continue`.
+
+Caught by re-running the check with failures reported rather than skipped, and by printing all
+seven lines back as Python to read what the source actually said. That printed form is what
+exposed the backslashes, which the compile count alone would never have shown.
+
+The distinction is the point. A wrong number can be caught by checking it. **A check that cannot
+fail cannot catch anything**, and it is more dangerous than no check at all, because it produces
+a record of having looked.
+
 **The documentation-risk theme.** The strawberry study's CPC units error — a product stored in
 0.1 mm/day that read plausibly wrong — belongs here as a cited precedent for why unit and
 documentation checks are part of the method. **This study supplies two more of its own, and they
@@ -393,6 +427,14 @@ the product's own documentation and its own view-time band before use.
 
 - Stop at every checkpoint. Print results, wait.
 - Never substitute a dataset. If an ID is dead, stop and ask.
+- **A validation that can pass by skipping is not a validation.** Any check must report its
+  failures explicitly and state what it examined. A harness that catches an exception and
+  continues must log the catch and fail loudly at the end, never absorb it silently. This applies
+  to every checkpoint in this project, not only to syntax checks: the same shape appears in cloud
+  screens that silently drop nights and in joins that silently drop rows. **Every checkpoint
+  report must carry its denominator** — how many station-nights were examined as well as how many
+  passed, how many units joined as well as how many matched — so that a shrinking sample is
+  visible rather than invisible. See §8 item 10.
 - **Never reuse a selector, field name or scale factor carried over from a previous project
   without re-verifying it against the current file's own schema.** Field names are not stable
   across survey years, and scale factors are not stable across products from the same provider.
