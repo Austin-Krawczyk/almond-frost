@@ -261,3 +261,50 @@ Every deviation from `CLAUDE.md`, dated, with the reason. One line each.
   **6–7 February 2019**. Station extremes are concentrated — the 12 coldest station-nights come
   from 5 stations — so per-station minima are reported alongside the event view, since a single
   station's minimum is a siting statement as much as a climate one.
+- 2026-09-23 — **§8 item 10 gains a fifth category: a filter that removes the phenomenon.** The
+  first three are data returning a believable wrong value; the fourth is verification returning a
+  believable pass; the fifth is a filter that **looks like good hygiene and removes the thing being
+  measured**, and it is the most dangerous of the five because applying it is a choice a reviewer
+  would praise. The case is the Step 2 CIMIS QC flags: `Y` and `R` are historical-limit tests, so
+  they fire because the night was extreme — 7.7% of unflagged station-nights are at or below 0 °C
+  against **44.2% of `Y`-flagged and 54.3% of `R`-flagged** — and screening on them would have
+  removed **20.2% of frost nights at 0 °C and 46.1% at −2.2 °C**. **Generalisation stated
+  explicitly: any quality filter whose trigger correlates with the signal biases the result, and in
+  an index-insurance context the direction is knowable in advance — toward understating tail
+  frequency, which is a mispricing rather than a data-cleaning choice.** Approved by user, who
+  called it the strongest result either project has produced.
+- 2026-09-23 — **§9 gains the matching rule:** every filter applied anywhere in this study must
+  report what it removed **and whether what it removed differs from what it kept** — the
+  distribution, not the count alone. Applies to QC flags, cloud masks, outlier screens and
+  minimum-observation cutoffs alike.
+- 2026-09-23 — **§9 gains the frost-versus-bloom limitation, recorded before Step 3.** Frost is
+  concentrated in February (2,299 of 2,910 nights at or below 0 °C; 15.4% nightly against 3.7% in
+  March) while almond bloom typically begins mid-February, so a meaningful share of the calendar's
+  frost nights fall before bloom, when the trees are dormant and the same temperature causes no
+  loss. Not a defect — the study measures hazard and deliberately does not model damage — but it
+  must be stated, because a reader will otherwise take the night count for a loss-relevant count.
+  **The calendar counts frost nights, not damaging nights; mapping the two requires bloom-stage
+  data this study does not use.**
+- 2026-09-23 — **§5.2 gains a sensor-by-event coverage table**, with collection start dates read
+  from Earth Engine rather than memory: MODIS Terra 2000-02-24, Aqua 2002-07-04, VIIRS 2012-01-19,
+  ECOSTRESS 2018-07-09, GOES-18 **2022-05-11**. Against the eight widespread events from Step 2:
+  Terra, Aqua and VIIRS see 8 of 8; ECOSTRESS 7 of 8; **GOES-18 only 3 of 8**. **The largest freeze
+  in the record — 20–24 February 2018, five consecutive nights at up to 49 of 50 stations,
+  −8.0 °C — is observable by three of the five sensors**, ECOSTRESS missing it by five months and
+  GOES-18 by four years. Note GOES-18 does **not** cover February 2022, contrary to a reading of
+  "2022 onward": its three reachable events are all single nights in February 2023.
+- 2026-09-23 — **§6 Step 7 REDEFINED, urgently rather than cosmetically.** As written it ran on the
+  Step 2 major events, of which GOES-18 can see three, all single nights — too thin for the timing
+  analysis. Redefined to use **every frost night in 2023–2025 meeting a stated radiative-cooling
+  condition** (station-night at or below 0 °C, plus the clear-sky criterion Step 3 establishes),
+  since the timing question needs a clear calm cooling night rather than a valley-wide freeze.
+  Counted from the calendar before the clear-sky criterion: the GOES-18 era holds 7,783 usable
+  station-nights, **606 at or below 0 °C over 64 distinct dates** (37 in 2023, 10 in 2024, 17 in
+  2025); 281 over 42 dates at −1.1 °C; 127 over 22 dates at −2.2 °C. Step 7 must report how many
+  nights survive the clear-sky criterion **before** running, and say so plainly if the count is
+  small.
+- 2026-09-23 — Both Step 2 scope decisions confirmed by user and logged with numbers. **Hourly
+  deferred**: pulled for the identified frost nights only, not the whole window. **20 km station
+  radius**: 63 stations against 55 at 10 km, farthest selected 19.7 km, and the median
+  unit-to-nearest-station distance barely moves (14.4 km against 14.7 km on the operating set), so
+  K3's spread survives the wider radius.

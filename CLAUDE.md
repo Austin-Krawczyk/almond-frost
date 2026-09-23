@@ -221,6 +221,35 @@ Treat it as a **case-study sensor** — find the handful of nights where an ECOS
 coincides with a CIMIS frost night, and use those as a spatial-structure demonstration, not as a
 statistical comparison.
 
+**Which sensor can see which event (ADDED 2026-09-23).** Collection start dates are read from
+Earth Engine, not from memory. The eight widespread freeze events are from Step 2.
+
+| Sensor | Collection begins | Events observable |
+|---|---|---|
+| MODIS Terra `MOD11A1` | 2000-02-24 | 8 of 8 |
+| MODIS Aqua `MYD11A1` | 2002-07-04 | 8 of 8 |
+| VIIRS `VNP21A1N` | 2012-01-19 | 8 of 8 |
+| ECOSTRESS `L2T_LSTE/V2` | 2018-07-09 | 7 of 8 |
+| GOES-18 `MCMIPC` | 2022-05-11 | 3 of 8 |
+
+| Event | Nights | Peak stations | Coldest | Terra | Aqua | VIIRS | ECOSTRESS | GOES-18 |
+|---|---|---|---|---|---|---|---|---|
+| **20–24 Feb 2018** | 5 | 49 of 50 | −8.0 °C | ✓ | ✓ | ✓ | — | — |
+| 6–7 Feb 2019 | 2 | 39 | −4.9 °C | ✓ | ✓ | ✓ | ✓ | — |
+| 23 Feb 2019 | 1 | 41 | −4.4 °C | ✓ | ✓ | ✓ | ✓ | — |
+| 6 Feb 2022 | 1 | 35 | −4.3 °C | ✓ | ✓ | ✓ | ✓ | — |
+| 24–26 Feb 2022 | 3 | 44 | −6.4 °C | ✓ | ✓ | ✓ | ✓ | — |
+| 1 Feb 2023 | 1 | 36 | −4.2 °C | ✓ | ✓ | ✓ | ✓ | ✓ |
+| 16 Feb 2023 | 1 | 36 | −5.1 °C | ✓ | ✓ | ✓ | ✓ | ✓ |
+| 18 Feb 2023 | 1 | 38 | −4.3 °C | ✓ | ✓ | ✓ | ✓ | ✓ |
+
+**The largest freeze in the record — 20–24 February 2018, five consecutive nights at up to 49 of
+50 stations — is observable by three of the five sensors.** ECOSTRESS misses it by five months and
+GOES-18 by four years. Note also that **GOES-18 does not cover February 2022**: its collection
+begins in May 2022, so the three events it can see are all single nights in February 2023. This
+is the constraint that forced the Step 7 redefinition below, and it belongs in §5 of the exhibit
+as part of the sensor-availability argument.
+
 ### 5.2a The unit is smaller than the pixel (ADDED 2026-09-22)
 
 **This reframes the whole comparison and must be read before §5.3.**
@@ -395,16 +424,38 @@ Test that by checking whether the same units read cold on independent frost nigh
 repeats is terrain; structure that does not is noise. That test is the point of this step. Where
 an ECOSTRESS night scene coincides with a major event, add it as a 70 m panel. CHECKPOINT.
 
-**Step 7 — GOES and the timing question.** For the major events, pull the GOES-18 ABI time series
-through the night at a sample of orchards. Report: the hour of observed minimum, how much colder
-the true minimum is than the 01:30 polar-orbiter snapshot, and whether that offset is spatially
-uniform. If the offset is large and variable in space, then no single-overpass product — however
-fine its pixels — measures the hazard, and 2 km every 10 minutes beats 1 km once a night. That
-would be the study's most useful finding. Note that GOES-18 restricts this step to the 2023–2025
-seasons. CHECKPOINT.
+**Step 7 — GOES and the timing question. REDEFINED 2026-09-23.**
 
-**Step 8 — Write up.** Assemble `EXHIBIT.md` and `SUMMARY.md`. Every number traceable to a
-notebook cell. Every kill criterion addressed explicitly, fired or not.
+**Why redefined.** As written, this step ran on the major events from Step 2. Those fall in 2018,
+2019, 2022 and 2023, and the GOES-18 collection begins **2022-05-11**, so only the three
+single-night February 2023 events were reachable — three event-nights for the analysis this study
+most wants. The timing question does not need a valley-wide freeze. It needs a **clear, calm,
+strongly cooling night**, and there are many of those in three seasons.
+
+**Redefined sample: every frost night in 2023–2025 that meets a stated radiative-cooling
+condition**, not only the widespread events. The condition, to be reported before the step runs:
+
+1. Station-night at or below the 0 °C threshold (§5.4); **and**
+2. the clear-sky criterion established in Step 3, applied to the same night.
+
+**Counted from the Step 2 calendar, before the Step 3 criterion is applied:** the GOES-18 era holds
+**7,783 usable station-nights, of which 606 are at or below 0 °C, spread over 64 distinct dates**
+(37 dates in 2023, 10 in 2024, 17 in 2025). At −1.1 °C it is 281 station-nights over 42 dates, and
+at −2.2 °C, 127 over 22 dates. Against three event-nights, that is the difference between a
+statement and an anecdote. **Report how many nights survive the clear-sky criterion before running
+the step**, and if the surviving count is small, say so rather than proceeding quietly.
+
+For those nights, pull the GOES-18 ABI time series and report:
+
+- **where in the night the minimum falls**, by station and by date;
+- **how far above the nightly minimum the ~01:30 polar-orbiter reading sits**, which is the number
+  that determines whether a once-a-night snapshot can stand in for a minimum;
+- **whether that offset varies in space** across the almond regions, since a spatially varying
+  offset cannot be removed by a single calibration constant.
+
+GOES is a **timing instrument only** here: `CMI_C13`/`C14` are top-of-atmosphere brightness
+temperatures, not LST, and GOES is absent from the Step 4 accuracy comparison (§5.2). GOES-17 is
+not used at all (§5.2). CHECKPOINT.
 
 ## 7. Figures
 
@@ -482,6 +533,14 @@ surprises found along the way.
   there is measurement versus interpolation. Against PRISM and gridMET (4 km) and ERA5-Land
   (~11 km) a resolution advantage is genuinely available. **These are two different findings and
   §5 must not merge them into one ranking.**
+- **The calendar counts frost nights, not damaging nights.** Frost here is concentrated in
+  February — 2,299 of 2,910 nights at or below 0 °C, a 15.4% nightly rate against 3.7% in March —
+  while almond bloom typically begins in mid-February. A meaningful share of the frost nights in
+  this calendar therefore fall before bloom, when the trees are dormant and the same temperature
+  causes no loss. **This is not a defect:** the study measures hazard and deliberately does not
+  model damage (§1). It must be stated plainly all the same, because a reader will otherwise take
+  the night count for a loss-relevant count. **Mapping frost nights to damaging nights requires
+  bloom-stage data this study does not use.**
 - **Step 6 tests neighbourhood-scale structure, not within-orchard structure.** Nothing in this
   study at 1 km may be described as resolving variation inside an orchard; only ECOSTRESS at
   ~70 m can.
@@ -560,10 +619,51 @@ treat Aqua as the ~01:30 primary was taken from the mission's **design** orbit r
 observed view times, which the data contradicts by up to 1¾ hours. Both were caught by checking
 the product's own documentation and its own view-time band before use.
 
+#### A fifth category: a filter that removes the phenomenon
+
+The first three are **data** returning a believable wrong value. The fourth is **verification**
+returning a believable pass. The fifth is a **filter that looks like good hygiene and removes the
+thing being measured.** It is the most dangerous of the five, because applying it is a defensible
+choice that a reviewer would praise.
+
+Found in this study, in Step 2. CIMIS flags each observation, and two of its informative flags are
+historical-limit tests: **`R` "Data is far out of historical limits"** and **`Y` "Data is
+moderately out of historical limits."** The obvious, conservative move is to drop flagged data.
+**The flags fire because the night was extreme**, so the screen selects against exactly the
+observations a frost study exists to measure. Measured over 31,359 usable station-nights:
+
+| | share at or below 0 °C |
+|---|---|
+| unflagged | **7.7%** |
+| `Y`-flagged | **44.2%** |
+| `R`-flagged | **54.3%** |
+
+Screening on those flags would have removed **20.2% of frost nights at 0 °C and 46.1% at
+−2.2 °C** — nearly half the severe frost nights in the record. Nothing would have looked wrong:
+the remaining data would be clean, the counts plausible, the method defensible in a footnote.
+
+**The generalisation, which is the part that matters beyond almonds: any quality filter whose
+trigger correlates with the signal biases the result.** Outlier screens, range checks,
+historical-limit tests and cloud masks all key on unusualness, and in geophysical data the extreme
+event *is* the unusual value. **In an index-insurance context the direction of that bias is
+knowable in advance: toward understating tail frequency.** An index priced on screened data
+underprices the tail. **That is a mispricing, not a data-cleaning choice**, and it would be
+invisible in every diagnostic that looks only at the retained data.
+
+What was done instead: severe flags (`I`, `M`, `S`) are dropped because they carry no value at all
+— all 387 in this record are null — while `Y` and `R` are kept, carried in a `flagged` column, and
+the flagged share is reported beside every frost-night count.
+
 ## 9. Rules for the agent
 
 - Stop at every checkpoint. Print results, wait.
 - Never substitute a dataset. If an ID is dead, stop and ask.
+- **Every filter must report what it removed, and whether what it removed differs from what it
+  kept.** Not the count alone: the distribution. A filter is only neutral if the discarded data
+  look like the retained data, and that has to be shown rather than assumed. This applies to QC
+  flags, cloud masks, outlier screens, minimum-observation cutoffs and every other exclusion in
+  this study. Where the removed data differ, say in which direction and by how much. See §8
+  item 10, fifth category, for the case that produced this rule.
 - **A validation that can pass by skipping is not a validation.** Any check must report its
   failures explicitly and state what it examined. A harness that catches an exception and
   continues must log the catch and fail loudly at the end, never absorb it silently. This applies
