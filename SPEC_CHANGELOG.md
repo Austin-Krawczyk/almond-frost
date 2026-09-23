@@ -410,3 +410,40 @@ Every deviation from `CLAUDE.md`, dated, with the reason. One line each.
   independent method before it is accepted, especially where zero is the expected answer. A sparse
   sensor, a rare event and a broken extraction all return nothing, and nothing looks the same in
   all three cases.
+- 2026-09-23 — **Step 4 complete. K2 FIRES.** On the 2,532 frost station-nights VIIRS can see,
+  bias-corrected per region and year and fitted leave-one-station-out, median absolute error is
+  **PRISM 0.72 °C, gridMET 0.85, Daymet 1.03, VIIRS 1.19, ERA5-Land 1.41.** The satellite is worse
+  than the best grid by 0.47 °C, 65% larger, and worse on RMSE and on the width of the central 90%
+  of its error distribution. The ordering holds at all three thresholds, for Aqua (1.24) and Terra
+  (1.23) on their own matched subsets, and in all three strata. **The only product any satellite
+  beats is ERA5-Land at ~11 km.**
+- 2026-09-23 — **The two §5.2a findings, kept apart.** (1) Against **Daymet at the same 1 km
+  footprint**, where no resolution advantage exists, Daymet 1.03 against VIIRS 1.19: **interpolation
+  beats measurement at equal footprint**, and Daymet interpolates from the same sparse network the
+  satellite is being judged against. (2) Against the **coarser** grids, where a resolution advantage
+  was available, PRISM at 4 km scores 0.72 against VIIRS at 1 km: the satellite did not realise it,
+  and the coarser product is the more accurate one, so nothing here is explained by pixel size.
+- 2026-09-23 — **A tail advantage that turned out to be an artefact, recorded because it nearly
+  stood.** Scored on every night each product has a value, VIIRS appeared to have tighter tails
+  than the grids on the coldest nights — RMSE 2.39 against PRISM 3.10 at −2.2 °C — which would have
+  been a real finding for insurance, where tails matter more than medians. **It is an artefact of
+  comparing different subsets of weather**: a satellite is only scored on nights it could see. On
+  the matched subset PRISM is 2.28 and Daymet 2.29 against VIIRS 2.39 and the advantage disappears.
+  Every head-to-head in Step 4 is therefore run on identical station-nights, with the unmatched
+  version shown only to expose the distortion.
+- 2026-09-23 — **Day alignment tested rather than assumed.** PRISM assets are timestamped noon UTC
+  and each provider defines its 24-hour window differently, while CIMIS `DayAirTmpMin` is the local
+  calendar day. Each grid was matched at offsets −1, 0 and +1: **all four minimise error at offset
+  0** (PRISM 0.94 against 1.50 and 1.96; Daymet 1.54 against 2.18 and 2.14; gridMET 1.25 against
+  1.75 and 2.15; ERA5-Land 1.95 against 2.61 and 2.52), so no shift is applied. ERA5-Land is built
+  from hourly data over 08:00 UTC to 08:00 UTC, matching the local calendar day by construction.
+- 2026-09-23 — **Bias correction is fitted leave-one-station-out**, not in-sample. Fitting an
+  offset on a region-year and scoring the same station-nights with it is self-fitting. The effect
+  is small and changes no ranking — VIIRS 1.13 in-sample against 1.19 LOSO, PRISM 0.68 against
+  0.72 — but every corrected figure quoted is the LOSO one.
+- 2026-09-23 — **Stratification sensitivity (§5.1a) reported: the strata are NOT load-bearing.**
+  Under all four alternative schemes, each moving one boundary by one county, the largest movement
+  in any product's MdAE is **0.050 °C** and **the ranking is identical in every scheme**. As §5.1a
+  required this to be stated either way: regional grouping in this study is a reporting convenience
+  rather than a physical control, and §5.4's per-region bias correction must be read in that light —
+  a correction fitted on strata that do not matter is largely fitting a single national offset.

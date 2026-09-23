@@ -1,0 +1,6 @@
+scheme,PRISM 4 km,gridMET 4 km,Daymet 1 km,VIIRS,ERA5-Land ~11 km,ranking
+base,0.72,0.85,1.03,1.19,1.41,PRISM < gridMET < Daymet < VIIRS < ERA5-Land
+b1_up,0.72,0.83,1.01,1.18,1.38,PRISM < gridMET < Daymet < VIIRS < ERA5-Land
+b1_down,0.72,0.87,1.06,1.2,1.41,PRISM < gridMET < Daymet < VIIRS < ERA5-Land
+b2_up,0.73,0.85,1.02,1.19,1.4,PRISM < gridMET < Daymet < VIIRS < ERA5-Land
+b2_down,0.68,0.85,1.06,1.18,1.39,PRISM < gridMET < Daymet < VIIRS < ERA5-Land
